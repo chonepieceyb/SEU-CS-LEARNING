@@ -1,0 +1,3 @@
+start_analysis_synthesis:s:00:00:06
+start_fitter:s:00:00:20-start_analysis_synthesis
+start_timing_analyzer:s:00:00:06-start_analysis_synthesis

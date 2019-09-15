@@ -1,0 +1,21 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x77e43654: ntdll + 0x43654 (RtlFreeHeap + 0x64)
+	0x71143c1a: MSVCR90 + 0x63c1a (free + 0xcc)
+	0x02741006: ccl_mem_native + 0x1006 (?mem_native_array_delete@@YIXPAX@Z + 0x6)
+	0x03070f9c: db_vdb + 0x40f9c (?clear@VDB_LEVEL_COLLECTION@@QAIXXZ + 0x3c)
+	0x03071468: db_vdb + 0x41468 (??1VDB_LEVEL_COLLECTION@@QAE@XZ + 0x28)
+	0x0d13dee5: edt_wed + 0x8dee5 (?wed_wsf_parser_yyparse@@YAHPAVFlexLexer@@PAX@Z + 0xd905)
+	</callstack>
+	<error>Current editor: WED, GED</error>
+	<date>Fri May 10 08:53:23 2019</date>
+	<version>Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition</version>
+	<full_error>Access Violation at 0X77E43654
+Current editor: WED, GED
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition </full_error>
+</internal_error>
+

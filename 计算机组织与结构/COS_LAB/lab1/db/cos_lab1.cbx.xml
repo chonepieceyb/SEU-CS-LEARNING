@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="cos_lab1">
+		<CBX_INST_ENTRY INSTANCE_NAME="|cos_lab1|lpm_mux0:inst24|lpm_mux:lpm_mux_component" CBX_FILE_NAME="mux_dqc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

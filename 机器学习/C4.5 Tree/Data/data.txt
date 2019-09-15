@@ -1,0 +1,14 @@
+PlayGolf:2 Outlook:3 Temp:3 Humidity:2 Windy:2
+No Rainy Hot High False		
+No Overoast Hot High True
+Yes Sunny Mild High False
+Yes Sunny Cool Normal False
+No Sunny Cool Normal True
+Yes Overoast Cool Normal True
+No Rainy Mild High False		
+Yes Rainy Cool Normal False		
+Yes Sunny Mild Normal False
+Yes Rainy Mild Normal True
+Yes Overoast Mild High True
+Yes Overoast Hot Normal False
+No Sunny Mild High True

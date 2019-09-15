@@ -1,0 +1,2 @@
+# microRts AI
+这是我在算法课程利用 microRts平台开发的一个ai，采用强化学习的经典算法qlearning, code里是最新的源代码，包含封装起来的qlearning类，如果想要用java实现qlearning的话，可以作为参考，这个类可以符用。另外一个源文件是依托与microRts的ai的实现的源代码。

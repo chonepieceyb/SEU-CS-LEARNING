@@ -1,0 +1,125 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Z_in'
+Slack : -8.794
+TNS   : -64.092
+
+Type  : Slow 1200mV 85C Model Setup 'REG_s_in'
+Slack : -8.527
+TNS   : -8.527
+
+Type  : Slow 1200mV 85C Model Setup 'MAR_in'
+Slack : -5.366
+TNS   : -38.187
+
+Type  : Slow 1200mV 85C Model Setup 'Y_in'
+Slack : -5.031
+TNS   : -37.785
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -4.739
+TNS   : -324.756
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.763
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Y_in'
+Slack : 0.856
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MAR_in'
+Slack : 0.939
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'REG_s_in'
+Slack : 1.061
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Z_in'
+Slack : 1.480
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Z_in'
+Slack : -8.320
+TNS   : -60.425
+
+Type  : Slow 1200mV 0C Model Setup 'REG_s_in'
+Slack : -7.983
+TNS   : -7.983
+
+Type  : Slow 1200mV 0C Model Setup 'MAR_in'
+Slack : -5.117
+TNS   : -36.063
+
+Type  : Slow 1200mV 0C Model Setup 'Y_in'
+Slack : -4.753
+TNS   : -35.676
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -4.498
+TNS   : -304.964
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.709
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Y_in'
+Slack : 0.771
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MAR_in'
+Slack : 0.841
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'REG_s_in'
+Slack : 0.933
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Z_in'
+Slack : 1.355
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Z_in'
+Slack : -3.079
+TNS   : -22.132
+
+Type  : Fast 1200mV 0C Model Setup 'REG_s_in'
+Slack : -2.959
+TNS   : -2.959
+
+Type  : Fast 1200mV 0C Model Setup 'MAR_in'
+Slack : -1.666
+TNS   : -11.359
+
+Type  : Fast 1200mV 0C Model Setup 'Y_in'
+Slack : -1.550
+TNS   : -11.179
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.491
+TNS   : -93.136
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Y_in'
+Slack : 0.335
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'REG_s_in'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'MAR_in'
+Slack : 0.371
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Z_in'
+Slack : 0.585
+TNS   : 0.000
+
+------------------------------------------------------------
