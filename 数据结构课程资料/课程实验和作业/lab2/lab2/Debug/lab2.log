@@ -1,0 +1,3 @@
+﻿  mineSweepGame.cpp
+d:\codemonkey\workspace\vs2017\lab2\lab2\minesweepgame.cpp(304): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  lab2.vcxproj -> D:\CodeMonkey\WORKSPACE\VS2017\lab2\Debug\lab2.exe

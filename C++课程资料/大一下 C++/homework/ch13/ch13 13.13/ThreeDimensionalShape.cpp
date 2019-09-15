@@ -1,0 +1,9 @@
+#include"ThreeDimensionalShape.h"
+ThreeDimensionalShape::ThreeDimensionalShape()
+{
+	setDimensionalShape();
+	setSortShape("NONE");
+}
+ThreeDimensionalShape::~ThreeDimensionalShape()
+{
+}

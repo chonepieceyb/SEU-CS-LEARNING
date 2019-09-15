@@ -1,0 +1,9 @@
+#include"TwoDimensionalShape.h"
+TwoDimensionalShape::TwoDimensionalShape()
+{
+	setDimensionalShape();
+	setSortShape("NONE");
+}
+TwoDimensionalShape::~TwoDimensionalShape()
+{
+}

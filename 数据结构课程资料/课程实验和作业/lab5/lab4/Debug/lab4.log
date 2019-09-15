@@ -1,0 +1,6 @@
+﻿  test.cpp
+d:\codemonkey\workspace\vs2017\lab5\lab4\graphmtx.hpp(108): warning C4715: “GraphMtx<char,int>::getVertex”: 不是所有的控件路径都返回值
+d:\codemonkey\workspace\vs2017\lab5\lab4\seqqueue.hpp(82): warning C4715: “SeqQueue<int>::deQueue”: 不是所有的控件路径都返回值
+d:\codemonkey\workspace\vs2017\lab5\lab4\graphmtx.hpp(239): warning C4715: “GraphMtx<char,int>::getFirstNeighbor”: 不是所有的控件路径都返回值
+d:\codemonkey\workspace\vs2017\lab5\lab4\graphmtx.hpp(259): warning C4715: “GraphMtx<char,int>::getNextNeighbor”: 不是所有的控件路径都返回值
+  lab4.vcxproj -> D:\CodeMonkey\WORKSPACE\VS2017\lab5\Debug\lab4.exe

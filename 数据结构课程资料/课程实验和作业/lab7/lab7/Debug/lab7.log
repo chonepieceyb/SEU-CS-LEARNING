@@ -1,0 +1,3 @@
+﻿  lab7.cpp
+d:\codemonkey\workspace\vs2017\lab7\lab7\lab7.cpp(8): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  lab7.vcxproj -> D:\CodeMonkey\WORKSPACE\VS2017\lab7\Debug\lab7.exe

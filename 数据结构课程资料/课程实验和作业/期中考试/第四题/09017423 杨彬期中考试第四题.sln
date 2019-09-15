@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "09017423 杨彬期中考试第四题", "09017423 杨彬期中考试第四题\09017423 杨彬期中考试第四题.vcxproj", "{38357C28-F911-4A44-B430-A2AA9E239931}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Debug|x64.ActiveCfg = Debug|x64
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Debug|x64.Build.0 = Debug|x64
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Debug|x86.ActiveCfg = Debug|Win32
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Debug|x86.Build.0 = Debug|Win32
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Release|x64.ActiveCfg = Release|x64
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Release|x64.Build.0 = Release|x64
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Release|x86.ActiveCfg = Release|Win32
+		{38357C28-F911-4A44-B430-A2AA9E239931}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3C3F6AA-1EE7-410A-B86B-18876E7988C7}
+	EndGlobalSection
+EndGlobal

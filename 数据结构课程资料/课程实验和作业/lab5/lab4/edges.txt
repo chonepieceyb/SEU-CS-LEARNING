@@ -1,0 +1,2 @@
+8
+a b 7 a c 11 b c 10 b d 9 c d 5 c e 7 c f 8 e f 6
