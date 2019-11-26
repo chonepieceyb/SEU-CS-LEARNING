@@ -1,0 +1,27 @@
+.286
+.MODEL SMALL
+.DATA
+    X DW ?
+    Y DW ?
+    Z DW ?
+    V DW ?
+.STACK
+.CODE
+START: MOV AX,@DATA
+       MOV DS,AX
+       MOV AX,X
+       IMUL Y ;  DX:AX<- X*Y
+       MOV CX,AX
+       MOV BX,DX
+       MOV AX,Z
+       CWD ; 将AX中的有符号数的符号扩展到DX中
+       ADD CX,AX
+       ADC BX,DX  ;  BX:CX<- X*Y+Z
+       SUB CX,540
+       SBB BX,0     ; BX:CX<- X*Y+Z-540
+       MOV AX,V
+       CDW
+       SUB AX,CX
+       SBB DX,BX ;   DX:AX<- (V-(X*Y+Z-540))
+       IDIV X;        AX<- (V-(X*Y+Z-540))/X 商
+END START
