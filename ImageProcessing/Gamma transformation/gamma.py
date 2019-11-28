@@ -12,6 +12,8 @@ def gamma_transformation(input,gamma,c):
     '''
     input = np.array(input,dtype=np.float32)
     #对输入进行归一化归到（0，1）
+    input = np.array(input,dtype= np.uint8)
+    print(input.shape)
     input = input/255            # 映射到[0,1]上
     input = np.power(input,gamma) #计算 r^gamma
     input = c* input              #计算 c*r^gamma
