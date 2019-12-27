@@ -1,0 +1,19 @@
+ i = 0 ;
+ j = 4 ;
+ k = 5 ;
+ q = 0 ;
+ while ( i < 10 ) do {
+    if ( ( i > 5 ) and ( k > j ) ) then {
+        k = k - 1 ; 
+	}
+    else {
+        k = k + 1 ; 
+	}
+	if ( k == i ) then {
+		k = j ; 
+	}
+	i = i + 1 ; 
+	while ( q < 5 ) do {
+		j = j - 1 ;
+	}
+ }
