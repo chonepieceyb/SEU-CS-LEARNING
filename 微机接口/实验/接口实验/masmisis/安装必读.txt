@@ -1,0 +1,11 @@
+1.执行 setup76 Sp4.exe 安装proteus 7.6 Sp4 
+2. 添加licence时指定到LICENCE.lxk
+3.安装完成后将 Proteus 7.6 SP4破解1.2版.exe 文件拷贝到安装目录，默认X:\Program Files\Labcenter Electronics\Proteus 7 Professional 
+(X是你安装的盘符)， 然后执行。
+4.Enjoy !!
+
+
+                                                                                
+-- beats
+                                                                             
+

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://carl.seu.edu.cn/student/Homework_Management/Edit_Homework_CN.aspx?hno=127 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	查看作业
+</title>
+    <style type="text/css">
+        a
+        {
+            text-decoration: none;
+        }
+        body
+        {
+            text-align: center;
+            font-family:'Arial','新宋体';
+            background-image:url("../images/back.jpg");
+            font-size:11pt;
+        }
+        .site {
+            font-size: 10pt;
+            width: 320px;
+        }
+        .site a {
+            text-decoration:none;
+            font-size:10pt;
+        }
+        .bg
+        {
+            position: absolute;
+            z-index: 100;
+            top: 0px;
+            left: 0px;
+            background-color: #000;
+            filter: alpha(opacity=60);
+            -moz-opacity: 0.6;
+            opacity: 0.6;
+        }
+        .auto-style8 {
+            width: 273px;
+            }
+        .auto-style14 {
+        }
+        .auto-style16 {
+            height: 25px;
+            width: 273px;
+        }
+        .auto-style22 {
+            height: 21px;
+        }
+        .auto-style23 {
+            width: 398px;
+        }
+        .auto-style24 {
+            width: 169px;
+        }
+table.datalist
+{
+    background-color:black ;
+    border-collapse:collapse;
+    border: 1px solid black;
+    font-size:11pt;
+    cursor :default;
+}
+tr.datalist
+{
+    background-color:white;
+    color:#003399;
+    cursor :default;
+}
+td.datalist
+{
+    background-color:white;
+    background-color:white;
+    border:solid #000 1px;
+    border-color:Silver ;
+    cursor :default;
+    font-size:11pt;
+}
+table.datalist1
+{
+    background-color:blue ;
+    font-size:11pt;
+    border-collapse:collapse;
+    border:none;
+    cursor :default;
+}
+tr.datalist1
+{
+    color:#003399;
+    cursor :default;
+}
+td.datalist1
+{
+    background-color:white;
+    border:solid #000 1px;
+    border-color:Silver ;
+    cursor :default;
+}
+td.datalist2
+{
+    background-color:white;
+    border:solid #000 1px;
+    border-color:Silver ;
+    font-size :11pt;
+    color :Black;
+    cursor :default;
+}
+table.datalist3
+{
+    background-color:blue ;
+    font-size:15px;
+    border-collapse:collapse;
+    border:none;
+    cursor :default;
+}
+        .auto-style25 {
+            width: 241px;
+        }
+        </style>
+    <script type="text/javascript">
+
+        function reinitIframe() {
+
+            var iframe = document.getElementById("addquestioniframe");
+
+            try {
+
+                var bHeight = iframe.contentWindow.document.body.scrollHeight;
+
+                var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+
+                var height = Math.max(bHeight, dHeight);
+
+                iframe.height = height;
+
+            } catch (ex) { }
+
+        }
+
+        //window.setInterval("reinitIframe()", 200);
+
+</script>
+    <link rel="shortcut icon" href="http://carl.seu.edu.cn/student/favicon2.ico"><style type="text/css">
+	.courses_0 { font-family:Arial,新宋体;font-size:11pt;text-decoration:none; }
+	.courses_1 { color:Black;font-family:Tahoma;font-size:10pt; }
+	.courses_2 { padding:0px 0px 0px 0px; }
+	.courses_3 { font-family:Arial,新宋体;font-size:11pt; }
+	.courses_4 {  }
+	.courses_5 { font-weight:normal; }
+	.courses_6 {  }
+	.courses_7 { color:#5555DD;text-decoration:underline; }
+	.courses_8 { padding:0px 0px 0px 0px; }
+	.courses_9 { color:#5555DD;text-decoration:underline; }
+	.courses_10 { color:#5555DD;text-decoration:underline; }
+
+</style></head>
+<body cz-shortcut-listen="true">
+    <form name="form1" method="post" action="http://carl.seu.edu.cn/student/Homework_Management/Edit_Homework_CN.aspx?hno=127" id="form1">
+<div>
+<input type="hidden" name="courses_ExpandState" id="courses_ExpandState" value="ennnnnn">
+<input type="hidden" name="courses_SelectedNode" id="courses_SelectedNode" value="coursest5">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="courses_PopulateLog" id="courses_PopulateLog" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjQ4NjA2MTA3D2QWAgIDD2QWBgIFD2QWBmYPZBYCZg9kFgwCAQ9kFgICAw8PFgIeBFRleHQFDSDmn6XnnIvkvZzkuJpkZAIDD2QWAgIBDw8WBB8ABUrnrKzljYHkuozmrKHkvZzkuJogID4+ICAgPHNwYW4gc3R5bGU9ImNvbG9yOmJsdWUiPueugOetlOmimCDimIUgNCA8L3NwYW4+IB4HVmlzaWJsZWdkZAIFDw8WAh8ABRLnrKzljYHkuozmrKHkvZzkuJpkZAIHDw8WAh8ABSLnu5PmnZ/ml7bpl7TvvJoyMDE5LzEyLzI2IDIzOjU5OjU5ZGQCCQ8PFgYfAAUJ5bey5a6M5oiQHglGb3JlQ29sb3IKJR4EXyFTQgIEZGQCCw8PFgIfAAUDMTI3ZGQCAQ9kFgICAQ9kFgQCAQ8WAh8BaGQCCQ8WBB4Dc3JjBVMuLi9RdWVzdGlvbl9CYW5rX01hbmFnZW1lbnQvU2hvd19Ub3BpY19RdWVzdGlvbl9DTi5hc3B4P3R5cGU9NCZobm89MTI3JnNubz0wOTAxNzQyMx8BZ2QCAg9kFgJmD2QWAgIBDzwrAAkCAA8WBh4NTmV2ZXJFeHBhbmRlZGQeDFNlbGVjdGVkTm9kZQUJY291cnNlc3Q1HglMYXN0SW5kZXgCB2QIFCsAAgUDMDowFCsAAhYIHwAFEuesrOWNgeS6jOasoeS9nOS4mh4FVmFsdWUFBmNvdXJzZR4IRXhwYW5kZWRnHgxTZWxlY3RBY3Rpb24LKi5TeXN0ZW0uV2ViLlVJLldlYkNvbnRyb2xzLlRyZWVOb2RlU2VsZWN0QWN0aW9uAxQrAAcFFzA6MCwwOjEsMDoyLDA6MywwOjQsMDo1FCsAAhYIHwAFCeWNlemAiemimB8IBQd0b3BpYz0wHwoLKwQDHwlnZBQrAAIWCB8ABQnlpJrpgInpopgfCAUHdG9waWM9MR8KCysEAx8JZ2QUKwACFggfAAUJ5Yik5pat6aKYHwgFB3RvcGljPTIfCgsrBAMfCWdkFCsAAhYIHwAFCeWhq+epuumimB8IBQd0b3BpYz0zHwoLKwQDHwlnZBQrAAIWCB8ABTIgPHNwYW4gc3R5bGU9ImNvbG9yOmJsdWUiPueugOetlOmimCDimIUgNCA8L3NwYW4+IB8IBQd0b3BpYz00HwlnHghTZWxlY3RlZGdkFCsAAhYIHwAFCFByb2plY3RzHwgFB3RvcGljPTUfCgsrBAMfCWdkZAIHDw8WBh8ABT5Db3B5cmlnaHQgJiMxNjk7IFNvdXRoZWFzdCBVbml2ZXJzaXR5IEUtbWFpbDp5YW5ncXNAc2V1LmVkdS5jbh4KRm9udF9OYW1lcxUBD0FyaWFsLOaWsOWui+S9kx8DAoAEZGQCCQ8PFgYfAAUqU2Nob29sIG9mIENvbXB1dGVyIFNjaWVuY2UgYW5kIEVuZ2luZWVyaW5nHwwVAQ9BcmlhbCzmlrDlrovkvZMfAwKABGRkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBQdjb3Vyc2VzXGFEyryHYIKhfDNN/Mz7vwG4R0ECXIUmnbZO6ke/ka4=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./查看作业_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./查看作业_files/ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+    function TreeView_PopulateNodeDoCallBack(context,param) {
+        WebForm_DoCallback(context.data.treeViewID,param,TreeView_ProcessNodeData,context,TreeView_ProcessNodeData,false);
+    }
+var courses_Data = null;//]]>
+</script>
+
+<script src="./查看作业_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax 客户端框架未能加载。');
+//]]>
+</script>
+
+<script src="./查看作业_files/ScriptResource(2).axd" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="75F69614">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJJm7Lv4InR92LflxJxTMEM1d0EKXB32kMWKZxVj6q0qhsz5ueFvV2FypM15ZDtKHeebWPz47t6cyNTdPuGykDJ">
+</div>
+    <div style="text-align:center;">
+        <iframe id="headsiframe" frameborder="0" marginheight="0" marginwidth="0" name="heads" scrolling="no" src="./查看作业_files/head_CN.html" style="width: 1100px; height: 175px"></iframe>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        <table id="Tables1" align="center" style="width: 1100px; text-align: center; background-color:white;">
+	<tbody><tr>
+		<td style="text-align:left;padding-left:5px;" class="auto-style22" colspan="2">
+                    <table style="width:1095px;">
+                        <tbody><tr>
+                            <td class="auto-style24" style="text-align:left;">
+                                <div id="nowsitediv" class="site"><a style="color:#74198b" href="http://carl.seu.edu.cn/student/Homework_Management_CN.aspx" target="_blank">作业</a> &gt;&gt; 
+                        
+                        <span id="nowsite"> 查看作业</span></div>
+                            </td>
+                            <td class="auto-style23">
+                                <span id="sitetipspan" style="text-align:left;">
+                                    <span id="sitetips" style="font-size:10pt;">第十二次作业  &gt;&gt;   <span style="color:blue">简答题 ★ 4 </span> </span>
+                                    </span>
+                                
+                                </td>
+                            <td class="auto-style25">
+                                <span id="endtimeLabel">结束时间：2019/12/26 23:59:59</span>
+                                </td>
+                            <td style="width:178px;">
+                                状态：&nbsp;
+                                <span id="finishtips" style="color:Blue;">已完成</span>
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    </td>
+	</tr>
+	<tr>
+		<td style="align-content:center;background-image:url(&#39;../../images/TreeViewHead.png&#39;);width:275px;height:28px;" class="auto-style16">
+                    <span style="font-size:12pt;">作业列表</span>
+                </td>
+		<td class="auto-style14" style="vertical-align:top;width:770px;" rowspan="2">
+                    <div style="text-align:center;margin-left:15px;">
+        
+        <table style="width:730px;margin-left:22px;">
+        <tbody><tr>
+        <td style="text-align:left;margin-left:10px;margin-top:5px;">
+            
+            
+            
+        </td>
+        </tr>
+        </tbody></table>
+        <iframe id="addquestioniframe" frameborder="0" marginheight="0" marginwidth="0" name="addquestioniframe" src="./查看作业_files/Show_Topic_Question_CN.html" width="770" height="700"></iframe>
+        </div>
+
+                </td>
+	</tr>
+	<tr>
+		<td style="vertical-align:top;padding-left:15px;border:medium solid #66CC00;" class="auto-style8">
+                     <a href="http://carl.seu.edu.cn/student/Homework_Management/Edit_Homework_CN.aspx?hno=127#courses_SkipLink"><img alt="跳过导航链接。" src="./查看作业_files/WebResource(1).axd" width="0" height="0" style="border-width:0px;"></a><div id="courses" style="font-family:Arial,新宋体;font-size:11pt;width:270px;">
+			<table cellpadding="0" cellspacing="0" style="border-width:0;">
+				<tbody><tr>
+					<td><a id="coursesn0" href="javascript:TreeView_ToggleNode(courses_Data,0,document.getElementById(&#39;coursesn0&#39;),&#39; &#39;,document.getElementById(&#39;coursesn0Nodes&#39;))"><img src="./查看作业_files/WebResource(2).axd" alt="折叠 第十二次作业" style="border-width:0;"></a></td><td class="courses_2 courses_4" style="white-space:nowrap;"><span class="courses_0 courses_1 courses_3" id="coursest0">第十二次作业</span></td>
+				</tr><tr style="height:0px;">
+					<td></td>
+				</tr>
+			</tbody></table><div id="coursesn0Nodes" style="display:block;">
+				<table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2" style="white-space:nowrap;"><span class="courses_0 courses_1" id="coursest1">单选题</span></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2" style="white-space:nowrap;"><span class="courses_0 courses_1" id="coursest2">多选题</span></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2" style="white-space:nowrap;"><span class="courses_0 courses_1" id="coursest3">判断题</span></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2" style="white-space:nowrap;"><span class="courses_0 courses_1" id="coursest4">填空题</span></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2 courses_8" onmouseover="TreeView_HoverNode(courses_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="courses_0 courses_1 courses_7" href="javascript:__doPostBack(&#39;courses&#39;,&#39;scourse\\topic=4&#39;)" onclick="TreeView_SelectNode(courses_Data, this,&#39;coursest5&#39;);" id="coursest5"> <span style="color:blue">简答题 ★ 4 </span> </a></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+					<tbody><tr style="height:0px;">
+						<td></td>
+					</tr><tr>
+						<td><div style="width:20px;height:1px"></div></td><td><img src="./查看作业_files/WebResource(3).axd" alt=""></td><td class="courses_2" style="white-space:nowrap;"><span class="courses_0 courses_1" id="coursest6">Projects</span></td>
+					</tr><tr style="height:0px;">
+						<td></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div><a id="courses_SkipLink"></a><br>
+                </td>
+	</tr>
+</tbody></table>
+
+        <table align="center" style="width:1100px;">
+            <tbody><tr>
+                <td align="center" style="text-align:center;vertical-align:bottom;padding-bottom:5px;height: 60px;">
+                    <hr style="border:medium solid #66CC00;width:1100px;">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="text-align:center;vertical-align:bottom;padding-bottom:5px;font-size: small;height: 24px;">
+                    <span id="end1label" style="font-family:Arial,新宋体;">Copyright © Southeast University E-mail:yangqs@seu.edu.cn</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="text-align:center;vertical-align:top;font-size: small;height: 34px;">
+                    <span id="end2label" style="font-family:Arial,新宋体;">School of Computer Science and Engineering</span> 
+                </td>
+            </tr>
+        </tbody></table>
+    
+        </div>
+        
+<script type="text/javascript">
+//<![CDATA[
+var courses_ImageArray =  new Array('', '', '', '/WebResource.axd?d=gh97Q9MnoJLCxO5FlSjE_VMVsp_jyb5OeKxcHkhCf8uCEAO5wiPA9kBih7bxBNqbTI9a_cqre2EgBIrcbuewYY7PPe-wu2SMdwVwfM9ezIjBw-PDkg0fg23FveuMzGFz0&t=637100518460000000', '/WebResource.axd?d=7nIlEMZtKyThSFQ_4VDI87enX_o-YGMeCxQ6LnxKqiqBLVif3ckNLGEG-559u4xRs5vt-P6ffeHUHvG2bMp4RZNM5WTXUUMgBCJY4sEBrcmbQwQ7le7XMutj9wuZjE_K0&t=637100518460000000', '/WebResource.axd?d=w34EiKk0n_79wLcrnCH0drzzrOo0qg2uf0Zc-l850wdyiOS9mJqo4TISOPYcuTYdCbdO5Ri2Bp4bPkA14ITJ2-OsvTNo97kSLLzyB4StZ9wzDSocJFyhhPBEdL6WUb0m0&t=637100518460000000');
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();var courses_Data = new Object();
+courses_Data.images = courses_ImageArray;
+courses_Data.collapseToolTip = "折叠 {0}";
+courses_Data.expandToolTip = "展开 {0}";
+courses_Data.expandState = theForm.elements['courses_ExpandState'];
+courses_Data.selectedNodeID = theForm.elements['courses_SelectedNode'];
+courses_Data.hoverClass = 'courses_10';
+courses_Data.hoverHyperLinkClass = 'courses_9';
+(function() {
+  for (var i=0;i<6;i++) {
+  var preLoad = new Image();
+  if (courses_ImageArray[i].length > 0)
+    preLoad.src = courses_ImageArray[i];
+  }
+})();
+courses_Data.lastIndex = 7;
+courses_Data.populateLog = theForm.elements['courses_PopulateLog'];
+courses_Data.treeViewID = 'courses';
+courses_Data.name = 'courses_Data';
+//]]>
+</script>
+</form>
+
+
+</body></html>
