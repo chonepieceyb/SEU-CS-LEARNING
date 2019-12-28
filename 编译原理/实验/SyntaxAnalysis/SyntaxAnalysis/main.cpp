@@ -81,7 +81,7 @@ int main() {
 	
 	//######################### 扫描文件模块
 	ifstream fin = ifstream();
-	fin.open("D:\\input.txt", ios::in);
+	fin.open(inputfile, ios::in);
 	if (!fin.is_open()) {
 		cout << "无法打开文件流" << endl;
 		return 0;
