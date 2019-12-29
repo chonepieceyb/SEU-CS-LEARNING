@@ -2,35 +2,6 @@ import cv2 as cv
 import numpy  as np
 import os
 
-def cov2D (image,kernal,stride=1):
-    '''
-    # 卷积函数 same padding ,stride 默认为 1,不加 bias
-    :param image:
-    :param kernal: 滤波器，其size为奇数 nd 数组
-    :return:
-    '''
-    image = np.array(image,dtype=np.float32)
-    new_image = image.copy()
-    image_shape = image.shape
-    k_shape = kernal.shape
-    padding =[
-        ((stride-1)*image_shape[i]+ k_shape[i] - stride)/2 for i in range(2)
-    ]
-    if padding[0] %2 != 0:
-        padding_i =(int(padding[0]), int(padding[0] + 1))
-    else:
-        padding_i = (int(padding[0]), int(padding[0] ))
-    if padding[1]%2 !=0:
-        padding_j = (int(padding[1]), int(padding[1] + 1))
-    else:
-        padding_j = (int(padding[1]), int(padding[1] ))
-    image = np.pad(image,(padding_i,padding_j),'constant')
-    # 卷积操作
-    for i in range(new_image.shape[0]):
-        for j in range(new_image.shape[1]):
-            new_image[i][j] = np.sum(image[i*stride:i*stride+k_shape[0],j*stride:j*stride+k_shape[1]] * kernal)
-    return new_image
-
 def linear_stretch(input):
     #对灰度进行线性拉伸
     if len(input.shape) <3:
@@ -80,24 +51,8 @@ def retinex_ssr(input,gauss_c=80,kernal_size=[3,3]):
     '''
     input = np.array(input,dtype=np.float32)
     shape = input.shape
-    # if len(shape)==2:
-    #     #如果是灰度图
-    #     input = np.expand_dims(input,-1) #增加一维
     kernal = cal_gauss_kernal(gauss_c,kernal_size)
     input_L = np.copy(input)
-    # for i in range( input_L.shape[-1]):
-    #     #     #遍历通道
-        #     #     print('###################################################')
-    #     #     #input_L[:,:,i] = cov2D( input_L[:,:,i],kernal,1)
-    #     #     input_L[:,:,i] = input_L[:,:,i] * kernal
-    # h, w = kernal_size
-    # if h%2 == 0:
-    #     h=h+1
-    # if w%2 ==0:
-    #     w=w+1
-    # input_L = cv.GaussianBlur(input,(h,w),gauss_c)
-    # input_L = np.multiply(input_L,kernal)
-    # input_L = np.average(input_L)
     input_L = cv.filter2D(input_L,-1,kernal)
     input = np.clip(input,0.000001,255)
     input_L = np.clip( input_L , 0.000001, 255)
