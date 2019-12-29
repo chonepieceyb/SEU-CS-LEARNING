@@ -24,8 +24,19 @@ public:
 	~SyntaxTree();
 	int addNode(treeNode& t);
 	void outputTreeAsFile(ofstream& fout , int widthset = 8,int heightset=4) {
+		if (isEmptyTree()) {
+			return;
+		}
 		getTreeWidth(head);   //计算宽度并保存下来
 		outputTreeAsFile(fout, head, widthset, heightset);
+	}
+	bool isEmptyTree() {
+		if (nodes.size() > 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 private:
 	vector<treeNode> nodes;                     //存放节点的实际区域

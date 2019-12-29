@@ -4,9 +4,7 @@ token::token(int t_id, string t_name, string v):token_id(t_id),token_name(t_name
 {
 }
 
-token::token() {
 
-}
 token::~token()
 {
 }

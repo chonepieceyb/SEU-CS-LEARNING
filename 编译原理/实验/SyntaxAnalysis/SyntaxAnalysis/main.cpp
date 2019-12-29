@@ -81,7 +81,7 @@ int main() {
 	
 	//######################### 扫描文件模块
 	ifstream fin = ifstream();
-	fin.open(inputfile, ios::in);
+	fin.open("D:\\input.txt", ios::in);
 	if (!fin.is_open()) {
 		cout << "无法打开文件流" << endl;
 		return 0;
@@ -94,8 +94,9 @@ int main() {
 	}
 	string str;
 	char c;
+	bool isIgnore = false;
 	while (fin.get(c)) {
-		if (c == ' ' || c == '\n' || c == '\t') {
+		if ((c == ' ' || c == '\n' || c == '\t') && isIgnore == false) {
 			if (str == "") {
 				continue;
 			}
@@ -106,6 +107,14 @@ int main() {
 			continue;
 		}
 		else {
+			if (c == '\"') {
+				if (isIgnore == false) {
+					isIgnore = true;
+				}
+				else {
+					isIgnore = false;
+				}
+			}
 			str += c;
 		}
 	};
@@ -114,7 +123,6 @@ int main() {
 		tokenstream.push_back(t);
 		fout << t << endl;
 	}
-	
 	fin.close();
 	//delete数组
 	for (int i = 0; i < stateNum; i++) {
@@ -128,7 +136,7 @@ int main() {
 	// 构造表达式，表达式定义的文法同 词法分析器 , 从表达式生成状态表
 
 	set<string> nonTerminators = set<string>({ "S1","S","E","EA","EO","rop","C","T","WD","I" });
-	set<string> terminators = set<string>({ "if","else","while","do","(",")","+","-","*","/", ";" ,"=","and","or","not",">","<",">=","<","==","!=" ,"true","false",
+	set<string> terminators = set<string>({ "if","else","while","do","(",")","+","-","*","/", ";" ,"=","and","or","not",">","<",">=","<=","<","==","!=" ,"true","false",
 											 "id","num","then","$","none","{","}" });
 	vector < vector<string>> productions = vector < vector<string>>();
 	productions.push_back(vector<string>({ "S1","S" }));
@@ -164,6 +172,22 @@ int main() {
 
 	LR1Parser myParser = LR1Parser(terminators, nonTerminators, productions);
 
+	/*
+	//#########################small demo ##################################
+	set<string> terminators = set<string>({"none","$","a","b","c","d"});
+	set<string> nonTerminators = set<string>({ "S1","S","A","B"});
+	vector < vector<string>> productions = vector < vector<string>>();
+	productions.push_back(vector<string>({ "S1","S" }));
+	productions.push_back(vector<string>({ "S","A","a" }));
+	productions.push_back(vector<string>({ "S","b","A","c" }));
+	productions.push_back(vector<string>({ "S","B","c" }));
+	productions.push_back(vector<string>({ "S","b","B","a" }));
+	productions.push_back(vector<string>({ "S","S","S" }));
+	productions.push_back(vector<string>({ "S","none" }));
+	productions.push_back(vector<string>({ "A","d" }));
+	productions.push_back(vector<string>({ "B","d" }));
+	LR1Parser myParser = LR1Parser(terminators, nonTerminators, productions);
+	*/
 	//设置初始状态
 	std::pair<string, int> p1 = make_pair("S1", 0);
 	vector<std::pair<string, int>> ps = vector<std::pair<string, int>>();
@@ -176,15 +200,210 @@ int main() {
 	
 
 	vector < pair<int, pair<string, int>> >deleteOperations = vector < pair<int, pair<string, int>>>();
-	deleteOperations.push_back(make_pair(46, make_pair("id", 1)));  // 83状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(48, make_pair("id", 1)));  // 83状态下读入分号 ，删除产生式
 	deleteOperations.push_back(make_pair(47, make_pair("id", 1)));  // 84状态下读入分号 ，删除产生式
-	deleteOperations.push_back(make_pair(78, make_pair("id", 1)));  // 84状态下读入分号 ，删除产生式
-	deleteOperations.push_back(make_pair(46, make_pair("if", 1)));  // 83状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(79, make_pair("id", 1)));  // 84状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(48, make_pair("if", 1)));  // 83状态下读入分号 ，删除产生式
 	deleteOperations.push_back(make_pair(47, make_pair("if", 1)));  // 84状态下读入分号 ，删除产生式
-	deleteOperations.push_back(make_pair(78, make_pair("if", 1)));  // 84状态下读入分号 ，删除产生式
-	deleteOperations.push_back(make_pair(46, make_pair("while", 1)));  // 83状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(79, make_pair("if", 1)));  // 84状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(48, make_pair("while", 1)));  // 83状态下读入分号 ，删除产生式
 	deleteOperations.push_back(make_pair(47, make_pair("while", 1)));  // 84状态下读入分号 ，删除产生式
-	deleteOperations.push_back(make_pair(78, make_pair("while", 1)));  // 83状态下读入分号 ，删除产生式
+	deleteOperations.push_back(make_pair(79, make_pair("while", 1)));  // 83状态下读入分号 ，删除产生式
+	//解决优先级和结合性带来的从图
+	deleteOperations.push_back(make_pair(33, make_pair("!=", 0)));   //33 状态 S - > EA E  ，优先级比and高保留产生式， 优先级 <= and 保留规约式
+	deleteOperations.push_back(make_pair(33, make_pair("+", 0)));    //左结合保留归约式
+	deleteOperations.push_back(make_pair(33, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("<", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("<=", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("==", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair(">", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair(">=", 0)));
+	deleteOperations.push_back(make_pair(33, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(33, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(34, make_pair("!=", 0)));   //34 状态 S - > E0 E  ，优先级比or高保留产生式(0)， 优先级 <= or 保留规约式(1)
+	deleteOperations.push_back(make_pair(34, make_pair("+", 0)));    //左结合保留归约式
+	deleteOperations.push_back(make_pair(34, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("<", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("<=", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("==", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair(">", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair(">=", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("and", 0)));
+	deleteOperations.push_back(make_pair(34, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("!=", 1)));   //35 状态 S - > not E  ，优先级比not高保留产生式(0)， 优先级 <= not 保留规约式(1)
+	deleteOperations.push_back(make_pair(35, make_pair("+", 1)));    //左结合保留归约式  
+	deleteOperations.push_back(make_pair(35, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(35, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair("!=", 1)));   //37 状态 S - > E rop E  (rop是> < >= <=, ==, !=) ，优先级比not高保留产生式(0)， 优先级 <= not 保留规约式(1)
+	deleteOperations.push_back(make_pair(37, make_pair("+", 0)));    //左结合保留归约式  
+	deleteOperations.push_back(make_pair(37, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(37, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(37, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(37, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(37, make_pair("and", 0)));
+	deleteOperations.push_back(make_pair(37, make_pair("or", 0)));
+	deleteOperations.push_back(make_pair(38, make_pair("!=", 1)));   //38 状态 S - > E + E   ，优先级比+高保留产生式(0)， 优先级 <=+ 保留规约式(1)
+	deleteOperations.push_back(make_pair(38, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(38, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(38, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(38, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(38, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("!=", 1)));   //39 状态 S - > E - E   ，优先级比+高保留产生式(0)， 优先级 <= - 保留规约式(1)
+	deleteOperations.push_back(make_pair(39, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(39, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(39, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(39, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(39, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("!=", 1)));   //40 状态 S - > E * E   ，优先级比+高保留产生式(0)， 优先级 <= - 保留规约式(1)
+	deleteOperations.push_back(make_pair(40, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(40, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(40, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("!=", 1)));   //41 状态 S - > E / E   ，优先级比/高保留产生式(0)， 优先级 <= /保留规约式(1)
+	deleteOperations.push_back(make_pair(41, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(41, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(41, make_pair("or", 1)));
+
+	//
+	deleteOperations.push_back(make_pair(86, make_pair("!=", 0)));   //86 状态 S - > EA E  ，优先级比and高保留产生式， 优先级 <= and 保留规约式
+	deleteOperations.push_back(make_pair(86, make_pair("+", 0)));    //左结合保留归约式
+	deleteOperations.push_back(make_pair(86, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("<", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("<=", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("==", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair(">", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair(">=", 0)));
+	deleteOperations.push_back(make_pair(86, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(86, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(87, make_pair("!=", 0)));   //87 状态 S - > E0 E  ，优先级比or高保留产生式(0)， 优先级 <= or 保留规约式(1)
+	deleteOperations.push_back(make_pair(87, make_pair("+", 0)));    //左结合保留归约式
+	deleteOperations.push_back(make_pair(87, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("<", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("<=", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("==", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair(">", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair(">=", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("and", 0)));
+	deleteOperations.push_back(make_pair(87, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("!=", 1)));   //88 状态 S - > not E  ，优先级比not高保留产生式(0)， 优先级 <= not 保留规约式(1)
+	deleteOperations.push_back(make_pair(88, make_pair("+", 1)));    //左结合保留归约式  
+	deleteOperations.push_back(make_pair(88, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(88, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair("!=", 1)));   //89 状态 S - > E rop E  (rop是> < >= <=, ==, !=) ，优先级比not高保留产生式(0)， 优先级 <= not 保留规约式(1)
+	deleteOperations.push_back(make_pair(89, make_pair("+", 0)));    //左结合保留归约式  
+	deleteOperations.push_back(make_pair(89, make_pair("-", 0)));
+	deleteOperations.push_back(make_pair(89, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(89, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(89, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(89, make_pair("and", 0)));
+	deleteOperations.push_back(make_pair(89, make_pair("or", 0)));
+	deleteOperations.push_back(make_pair(90, make_pair("!=", 1)));   //90 状态 S - > E + E   ，优先级比+高保留产生式(0)， 优先级 <=+ 保留规约式(1)
+	deleteOperations.push_back(make_pair(90, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(90, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(90, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(90, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(90, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("!=", 1)));   //91 状态 S - > E - E   ，优先级比+高保留产生式(0)， 优先级 <= - 保留规约式(1)
+	deleteOperations.push_back(make_pair(91, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(91, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("*", 0)));
+	deleteOperations.push_back(make_pair(91, make_pair("/", 0)));
+	deleteOperations.push_back(make_pair(91, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(91, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("!=", 1)));   //92 状态 S - > E * E   ，优先级比+高保留产生式(0)， 优先级 <= - 保留规约式(1)
+	deleteOperations.push_back(make_pair(92, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(92, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(92, make_pair("or", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("!=", 1)));   //93状态 S - > E / E   ，优先级比/高保留产生式(0)， 优先级 <= /保留规约式(1)
+	deleteOperations.push_back(make_pair(93, make_pair("+", 1)));    //左结合保留归约式  (1)
+	deleteOperations.push_back(make_pair(93, make_pair("-", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("*", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("/", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("<", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("<=", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("==", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair(">", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair(">=", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("and", 1)));
+	deleteOperations.push_back(make_pair(93, make_pair("or", 1)));
 	myParser.sloveAmbiguousTable(deleteOperations);
 	ofstream fout2 = ofstream();
 	fout2.open(modelfile, ios::out);

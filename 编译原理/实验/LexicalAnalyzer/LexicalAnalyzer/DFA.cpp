@@ -117,8 +117,8 @@ token DFA::scan(string str, string(*inputConvert)(char c)) {
 				return t;
 			}
 			else {
-				cout << "syntex_error\n";    //词法错误
-				token t = token(-1, "syntex_error", str);
+				cout << "lexical_error\n";    //词法错误
+				token t = token(-1, "lexical_error", str);
 				cout << t << endl;
 				return t;
 			}
@@ -127,9 +127,9 @@ token DFA::scan(string str, string(*inputConvert)(char c)) {
 		state = state->transfer(ch);
 		if (state == nullptr) {
 			//如果找不到的话，报错
-			cout << "syntex_error\n";
+			cout << "lexical_error\n";
 			str.pop_back();
-			token t = token(-1, "syntex_error", str);
+			token t = token(-1, "lexical_error", str);
 			cout << t << endl;
 			return t;
 		}

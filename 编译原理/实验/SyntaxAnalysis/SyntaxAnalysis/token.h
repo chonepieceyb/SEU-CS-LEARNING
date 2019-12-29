@@ -7,15 +7,15 @@ using namespace std;
 class token
 {
 public:
-	token();
 	token(int t_id,string t_name, string v);
+	token() {};
 	~token();
 	friend ostream& operator<<(ostream& output, const token& t);
 	friend ofstream& operator<<(ofstream& foutput, const token& t);
 	void generateTokenStream  (ofstream& fout);
-	ATTRIBUTE_READ_ONLY(string, token_name);
+	ATTRIBUTE_MEMBER_FUNC(string, token_name);
+	ATTRIBUTE_MEMBER_FUNC(string, value);
 	int getTokenID();
-	ATTRIBUTE_READ_ONLY(string, value);
 private:
 	int token_id;
 	string token_name;

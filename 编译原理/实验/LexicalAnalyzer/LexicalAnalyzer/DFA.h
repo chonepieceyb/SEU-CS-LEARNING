@@ -28,7 +28,6 @@ public:
 	token isKeepWord(string keyword);                       //判断是不是保留字
 	token scan(string str,  string(*inputConvert)(char c) = [](char c)->string {return string(1, c); });// 扫描字符串生成token
 private:
-	string end;
 	unordered_map<int, tokenItem> tokenDict;       // 终结符
 	unordered_map<string, token> keepWords;        // 保留字
 	vector<State> states;

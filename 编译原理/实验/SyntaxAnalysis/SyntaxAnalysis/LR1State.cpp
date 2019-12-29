@@ -20,7 +20,7 @@ void LR1State::calFollowSet(ProductionStack& p, set<ProductionStack>& fps)
 		ProductionStack  op = *p_iter;
 		Node* currentNode = op.get_head()->getNodeInProduction(op.get_production_id(), op.get_stackState());
 		
-		if (currentNode->get_node_name() == p.get_head()->get_node_name()) {
+		if (currentNode!=nullptr && currentNode->get_node_name() == p.get_head()->get_node_name()) {
 			//如果产生式中的非终结符相同，计算follow集合
 			//先计算产生式之后符号的first集合
 			set<string>firstSetS = op.get_head()->calFirstSet(op.get_production_id(), op.get_stackState() + 1);

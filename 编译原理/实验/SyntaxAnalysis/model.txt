@@ -26,11 +26,12 @@
 (24) rop --> > 
 (25) rop --> >= 
 (26) rop --> < 
-(27) rop --> == 
-(28) rop --> != 
+(27) rop --> <= 
+(28) rop --> == 
+(29) rop --> != 
 
 ###############×´Ì¬Í¼#################
-state: 47
+state: 48
 C --> .if ( E ) then { {}
 S --> .id = E ; { $,id,if,while}
 S --> .S S { $,id,if,while}
@@ -45,7 +46,7 @@ input:if --> state3
 input:WD --> state2
 input:while --> state1
 input:id --> state4
-input:S --> state47
+input:S --> state48
 input:C --> state5
 input:T --> state7
 
@@ -64,7 +65,7 @@ input:if --> state3
 input:WD --> state2
 input:while --> state1
 input:id --> state4
-input:S --> state47
+input:S --> state48
 input:C --> state5
 input:T --> state7
 
@@ -86,7 +87,7 @@ input:S --> state6
 input:C --> state5
 input:T --> state7
 
-state: 78
+state: 79
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -98,14 +99,14 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 51
+state: 52
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -117,15 +118,15 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state77
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state78
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 81
+state: 82
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -137,15 +138,15 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state97
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state98
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 53
+state: 54
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -158,15 +159,15 @@ T --> .C { S } else { {}
 T --> C { S .} else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state79
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state80
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 82
+state: 83
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -179,15 +180,15 @@ T --> .C { S } else { {}
 T --> C { S .} else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state98
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state99
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 54
+state: 55
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -199,15 +200,15 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state80
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state81
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 83
+state: 84
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -219,15 +220,15 @@ S --> WD { S .} { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:} --> state99
-input:S --> state78
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:} --> state100
+input:S --> state79
+input:C --> state51
+input:T --> state53
 
-state: 43
+state: 44
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -238,14 +239,14 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state51
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state52
+input:C --> state51
+input:T --> state53
 
-state: 73
+state: 74
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -256,14 +257,14 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state81
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state82
+input:C --> state51
+input:T --> state53
 
-state: 44
+state: 45
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -275,14 +276,14 @@ T --> .C { S } else { {}
 T --> C { .S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state53
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state54
+input:C --> state51
+input:T --> state53
 
-state: 74
+state: 75
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -294,14 +295,14 @@ T --> .C { S } else { {}
 T --> C { .S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state82
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state83
+input:C --> state51
+input:T --> state53
 
-state: 45
+state: 46
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -312,14 +313,14 @@ S --> .WD { S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state54
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state55
+input:C --> state51
+input:T --> state53
 
-state: 75
+state: 76
 C --> .if ( E ) then { {}
 S --> .id = E ; { id,if,while,}}
 S --> .S S { id,if,while,}}
@@ -330,12 +331,12 @@ S --> WD { .S } { id,if,while,}}
 T --> .C { S } else { {}
 WD --> .while ( E ) do { {}
 input:if --> state3
-input:WD --> state48
+input:WD --> state49
 input:while --> state1
-input:id --> state49
-input:S --> state83
-input:C --> state50
-input:T --> state52
+input:id --> state50
+input:S --> state84
+input:C --> state51
+input:T --> state53
 
 state: 3
 C --> if .( E ) then { {}
@@ -343,19 +344,19 @@ input:( --> state8
 
 state: 8
 C --> if ( .E ) then { {}
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:E --> state11
@@ -370,16 +371,17 @@ input:( --> state17
 
 state: 11
 C --> if ( E .) then { {}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:) --> state18
@@ -393,36 +395,37 @@ input:and --> state24
 input:> --> state26
 input:>= --> state27
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 18
 C --> if ( E ) .then { {}
-input:then --> state31
+input:then --> state32
 
-state: 31
+state: 32
 C --> if ( E ) then .{ {}
 
 state: 13
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> EA .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> EA .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
 input:num --> state12
-input:E --> state32
+input:E --> state33
 input:id --> state10
 input:false --> state9
 input:EO --> state15
@@ -431,47 +434,47 @@ input:not --> state16
 input:( --> state17
 
 state: 15
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> EO .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> EO .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
 input:num --> state12
 input:EO --> state15
 input:true --> state14
-input:E --> state33
+input:E --> state34
 input:id --> state10
 input:false --> state9
 input:not --> state16
 input:( --> state17
 
 state: 16
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> not .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> not .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -479,80 +482,26 @@ input:num --> state12
 input:EO --> state15
 input:true --> state14
 input:not --> state16
-input:E --> state34
+input:E --> state35
 input:id --> state10
 input:false --> state9
 input:( --> state17
 
 state: 17
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> ( .E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
-EA --> .E and { (,false,id,not,num,true}
-EO --> .E or { (,false,id,not,num,true}
-input:EA --> state13
-input:num --> state12
-input:EO --> state15
-input:true --> state14
-input:not --> state16
-input:( --> state17
-input:E --> state35
-input:id --> state10
-input:false --> state9
-
-state: 61
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> ( .E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
-EA --> .E and { (,false,id,not,num,true}
-EO --> .E or { (,false,id,not,num,true}
-input:EA --> state13
-input:num --> state12
-input:EO --> state15
-input:true --> state14
-input:not --> state16
-input:( --> state17
-input:E --> state84
-input:id --> state10
-input:false --> state9
-
-state: 21
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E rop .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> ( .E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -565,21 +514,48 @@ input:E --> state36
 input:id --> state10
 input:false --> state9
 
-state: 20
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E + .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 62
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> ( .E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+EA --> .E and { (,false,id,not,num,true}
+EO --> .E or { (,false,id,not,num,true}
+input:EA --> state13
+input:num --> state12
+input:EO --> state15
+input:true --> state14
+input:not --> state16
+input:( --> state17
+input:E --> state85
+input:id --> state10
+input:false --> state9
+
+state: 21
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E rop .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -592,21 +568,21 @@ input:E --> state37
 input:id --> state10
 input:false --> state9
 
-state: 22
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E - .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 20
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E + .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -619,21 +595,21 @@ input:E --> state38
 input:id --> state10
 input:false --> state9
 
-state: 23
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E * .E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 22
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E - .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -646,21 +622,21 @@ input:E --> state39
 input:id --> state10
 input:false --> state9
 
-state: 25
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E / .E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 23
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E * .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 input:EA --> state13
@@ -673,20 +649,47 @@ input:E --> state40
 input:id --> state10
 input:false --> state9
 
-state: 46
-E --> .EA E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .EO E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .not E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .( E ) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .id { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .true { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .false { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .num { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E + E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E - E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E * E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> .E / E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 25
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E / .E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+EA --> .E and { (,false,id,not,num,true}
+EO --> .E or { (,false,id,not,num,true}
+input:EA --> state13
+input:num --> state12
+input:EO --> state15
+input:true --> state14
+input:not --> state16
+input:( --> state17
+input:E --> state41
+input:id --> state10
+input:false --> state9
+
+state: 47
+E --> .EA E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .not E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .id { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .true { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .false { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .num { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 WD --> while ( .E ) do { {}
@@ -696,22 +699,23 @@ input:EO --> state15
 input:true --> state14
 input:not --> state16
 input:( --> state17
-input:E --> state55
+input:E --> state56
 input:id --> state10
 input:false --> state9
 
-state: 32
-E --> EA E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 33
+E --> EA E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -724,372 +728,322 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
-state: 57
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> EA .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 58
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> EA .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:E --> state85
-input:id --> state63
-input:false --> state62
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
-
-state: 59
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> EO .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-EA --> .E and { (,false,id,not,num,true}
-EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
+input:EA --> state58
+input:num --> state57
 input:E --> state86
-input:id --> state63
-input:false --> state62
-input:not --> state60
-input:( --> state61
+input:id --> state64
+input:false --> state63
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
 
 state: 60
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> not .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> EO .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
 input:E --> state87
-input:id --> state63
-input:false --> state62
-input:( --> state61
+input:id --> state64
+input:false --> state63
+input:not --> state61
+input:( --> state62
 
-state: 66
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E rop .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 61
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> not .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
 input:E --> state88
-input:id --> state63
-input:false --> state62
+input:id --> state64
+input:false --> state63
+input:( --> state62
 
-state: 68
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E + .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 67
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E rop .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
 input:E --> state89
-input:id --> state63
-input:false --> state62
+input:id --> state64
+input:false --> state63
 
 state: 69
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E - .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E + .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
 input:E --> state90
-input:id --> state63
-input:false --> state62
+input:id --> state64
+input:false --> state63
 
 state: 70
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E * .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E - .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
 input:E --> state91
-input:id --> state63
-input:false --> state62
+input:id --> state64
+input:false --> state63
 
 state: 71
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E / .E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E * .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
 input:E --> state92
-input:id --> state63
-input:false --> state62
+input:id --> state64
+input:false --> state63
 
-state: 42
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 72
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E / .E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+EA --> .E and { (,false,id,not,num,true}
+EO --> .E or { (,false,id,not,num,true}
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
+input:E --> state93
+input:id --> state64
+input:false --> state63
+
+state: 43
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 S --> id = .E ; { $,id,if,while}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
-input:E --> state64
-input:id --> state63
-input:false --> state62
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
+input:E --> state65
+input:id --> state64
+input:false --> state63
 
-state: 72
-E --> .EA E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .EO E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .not E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .( E ) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .id { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .true { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .false { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .num { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E + E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E - E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E * E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> .E / E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 73
+E --> .EA E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .EO E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .not E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .( E ) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .id { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .true { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .false { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .num { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E + E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E - E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E * E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> .E / E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> .E and { (,false,id,not,num,true}
 EO --> .E or { (,false,id,not,num,true}
 S --> id = .E ; { id,if,while,}}
-input:EA --> state57
-input:num --> state56
-input:EO --> state59
-input:true --> state58
-input:not --> state60
-input:( --> state61
-input:E --> state93
-input:id --> state63
-input:false --> state62
-
-state: 85
-E --> EA E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-EA --> E .and { (,false,id,not,num,true}
-EO --> E .or { (,false,id,not,num,true}
-rop --> .> { (,false,id,not,num,true}
-rop --> .>= { (,false,id,not,num,true}
-rop --> .< { (,false,id,not,num,true}
-rop --> .== { (,false,id,not,num,true}
-rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
-input:and --> state24
-input:or --> state19
-input:>= --> state27
-input:> --> state26
-input:< --> state28
-input:== --> state29
-input:!= --> state30
-
-state: 33
-E --> EO E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-EA --> E .and { (,false,id,not,num,true}
-EO --> E .or { (,false,id,not,num,true}
-rop --> .> { (,false,id,not,num,true}
-rop --> .>= { (,false,id,not,num,true}
-rop --> .< { (,false,id,not,num,true}
-rop --> .== { (,false,id,not,num,true}
-rop --> .!= { (,false,id,not,num,true}
-input:rop --> state21
-input:+ --> state20
-input:- --> state22
-input:* --> state23
-input:/ --> state25
-input:and --> state24
-input:or --> state19
-input:>= --> state27
-input:> --> state26
-input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:EA --> state58
+input:num --> state57
+input:EO --> state60
+input:true --> state59
+input:not --> state61
+input:( --> state62
+input:E --> state94
+input:id --> state64
+input:false --> state63
 
 state: 86
-E --> EO E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> EA E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 34
-E --> not E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> EO E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1102,137 +1056,176 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 87
-E --> not E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> EO E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 35
-E --> ( E .) { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> not E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:) --> state41
-input:or --> state19
 input:rop --> state21
 input:+ --> state20
 input:- --> state22
 input:* --> state23
 input:/ --> state25
 input:and --> state24
-input:> --> state26
+input:or --> state19
 input:>= --> state27
+input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
-state: 41
-E --> ( E ) .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-
-state: 84
-E --> ( E .) { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 88
+E --> not E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:) --> state94
-input:or --> state19
-input:rop --> state21
-input:+ --> state20
-input:- --> state22
-input:* --> state23
-input:/ --> state25
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
-input:> --> state26
+input:or --> state19
 input:>= --> state27
+input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
-
-state: 94
-E --> ( E ) .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 36
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E rop E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> ( E .) { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
+input:) --> state42
+input:or --> state19
 input:rop --> state21
 input:+ --> state20
 input:- --> state22
 input:* --> state23
 input:/ --> state25
 input:and --> state24
-input:or --> state19
-input:>= --> state27
 input:> --> state26
+input:>= --> state27
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
+
+state: 42
+E --> ( E ) .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+
+state: 85
+E --> ( E .) { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+EA --> E .and { (,false,id,not,num,true}
+EO --> E .or { (,false,id,not,num,true}
+rop --> .> { (,false,id,not,num,true}
+rop --> .>= { (,false,id,not,num,true}
+rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
+rop --> .== { (,false,id,not,num,true}
+rop --> .!= { (,false,id,not,num,true}
+input:) --> state95
+input:or --> state19
+input:rop --> state21
+input:+ --> state20
+input:- --> state22
+input:* --> state23
+input:/ --> state25
+input:and --> state24
+input:> --> state26
+input:>= --> state27
+input:< --> state28
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
+
+state: 95
+E --> ( E ) .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 
 state: 37
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E + E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E rop E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1245,21 +1238,23 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 38
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E - E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E + E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1272,21 +1267,23 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 39
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E * E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E - E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1299,21 +1296,23 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 40
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E / E .{ !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E * E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1326,21 +1325,52 @@ input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
-state: 55
-E --> E .rop E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .+ E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .- E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E .* E { !=,),*,+,-,/,<,==,>,>=,and,or}
-E --> E ./ E { !=,),*,+,-,/,<,==,>,>=,and,or}
+state: 41
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E / E .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+EA --> E .and { (,false,id,not,num,true}
+EO --> E .or { (,false,id,not,num,true}
+rop --> .> { (,false,id,not,num,true}
+rop --> .>= { (,false,id,not,num,true}
+rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
+rop --> .== { (,false,id,not,num,true}
+rop --> .!= { (,false,id,not,num,true}
+input:rop --> state21
+input:+ --> state20
+input:- --> state22
+input:* --> state23
+input:/ --> state25
+input:and --> state24
+input:or --> state19
+input:>= --> state27
+input:> --> state26
+input:< --> state28
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
+
+state: 56
+E --> E .rop E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 WD --> while ( E .) do { {}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
 input:rop --> state21
@@ -1350,227 +1380,242 @@ input:* --> state23
 input:/ --> state25
 input:and --> state24
 input:or --> state19
-input:) --> state65
+input:) --> state66
 input:> --> state26
 input:>= --> state27
 input:< --> state28
-input:== --> state29
-input:!= --> state30
-
-state: 88
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E rop E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-EA --> E .and { (,false,id,not,num,true}
-EO --> E .or { (,false,id,not,num,true}
-rop --> .> { (,false,id,not,num,true}
-rop --> .>= { (,false,id,not,num,true}
-rop --> .< { (,false,id,not,num,true}
-rop --> .== { (,false,id,not,num,true}
-rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
-input:and --> state24
-input:or --> state19
-input:>= --> state27
-input:> --> state26
-input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 89
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E + E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E rop E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 90
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E - E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E + E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 91
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E * E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E - E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 92
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E / E .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E * E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:rop --> state66
-input:+ --> state68
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:>= --> state27
 input:> --> state26
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
-state: 64
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 93
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E / E .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+EA --> E .and { (,false,id,not,num,true}
+EO --> E .or { (,false,id,not,num,true}
+rop --> .> { (,false,id,not,num,true}
+rop --> .>= { (,false,id,not,num,true}
+rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
+rop --> .== { (,false,id,not,num,true}
+rop --> .!= { (,false,id,not,num,true}
+input:rop --> state67
+input:+ --> state69
+input:- --> state70
+input:* --> state71
+input:/ --> state72
+input:and --> state24
+input:or --> state19
+input:>= --> state27
+input:> --> state26
+input:< --> state28
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
+
+state: 65
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 S --> id = E .; { $,id,if,while}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:+ --> state68
-input:rop --> state66
-input:; --> state67
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:+ --> state69
+input:rop --> state67
+input:; --> state68
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:> --> state26
 input:>= --> state27
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
-state: 93
-E --> E .rop E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .+ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .- E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E .* E { !=,*,+,-,/,;,<,==,>,>=,and,or}
-E --> E ./ E { !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 94
+E --> E .rop E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .+ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .- E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E .* E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
+E --> E ./ E { !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 EA --> E .and { (,false,id,not,num,true}
 EO --> E .or { (,false,id,not,num,true}
 S --> id = E .; { id,if,while,}}
 rop --> .> { (,false,id,not,num,true}
 rop --> .>= { (,false,id,not,num,true}
 rop --> .< { (,false,id,not,num,true}
+rop --> .<= { (,false,id,not,num,true}
 rop --> .== { (,false,id,not,num,true}
 rop --> .!= { (,false,id,not,num,true}
-input:+ --> state68
-input:rop --> state66
-input:; --> state95
-input:- --> state69
-input:* --> state70
-input:/ --> state71
+input:+ --> state69
+input:rop --> state67
+input:; --> state96
+input:- --> state70
+input:* --> state71
+input:/ --> state72
 input:and --> state24
 input:or --> state19
 input:> --> state26
 input:>= --> state27
 input:< --> state28
-input:== --> state29
-input:!= --> state30
+input:<= --> state29
+input:== --> state30
+input:!= --> state31
 
 state: 10
-E --> id .{ !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> id .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 
-state: 63
-E --> id .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 64
+E --> id .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 
 state: 14
-E --> true .{ !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> true .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 
-state: 58
-E --> true .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 59
+E --> true .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 
 state: 9
-E --> false .{ !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> false .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 
-state: 62
-E --> false .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 63
+E --> false .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 
 state: 12
-E --> num .{ !=,),*,+,-,/,<,==,>,>=,and,or}
+E --> num .{ !=,),*,+,-,/,<,<=,==,>,>=,and,or}
 
-state: 56
-E --> num .{ !=,*,+,-,/,;,<,==,>,>=,and,or}
+state: 57
+E --> num .{ !=,*,+,-,/,;,<,<=,==,>,>=,and,or}
 
 state: 24
 EA --> E and .{ (,false,id,not,num,true}
@@ -1580,78 +1625,78 @@ EO --> E or .{ (,false,id,not,num,true}
 
 state: 4
 S --> id .= E ; { $,id,if,while}
-input:= --> state42
+input:= --> state43
 
-state: 67
+state: 68
 S --> id = E ; .{ $,id,if,while}
 
-state: 49
+state: 50
 S --> id .= E ; { id,if,while,}}
-input:= --> state72
+input:= --> state73
 
-state: 95
+state: 96
 S --> id = E ; .{ id,if,while,}}
 
 state: 7
 S --> T .{ S } { $,id,if,while}
-input:{ --> state43
+input:{ --> state44
 
-state: 77
+state: 78
 S --> T { S } .{ $,id,if,while}
 
-state: 52
+state: 53
 S --> T .{ S } { id,if,while,}}
-input:{ --> state73
+input:{ --> state74
 
-state: 97
+state: 98
 S --> T { S } .{ id,if,while,}}
 
 state: 5
 S --> C .{ S } { $,id,if,while}
 T --> C .{ S } else { {}
-input:{ --> state44
-
-state: 79
-S --> C { S } .{ $,id,if,while}
-T --> C { S } .else { {}
-input:else --> state96
-
-state: 50
-S --> C .{ S } { id,if,while,}}
-T --> C .{ S } else { {}
-input:{ --> state74
-
-state: 98
-S --> C { S } .{ id,if,while,}}
-T --> C { S } .else { {}
-input:else --> state96
-
-state: 2
-S --> WD .{ S } { $,id,if,while}
 input:{ --> state45
 
 state: 80
-S --> WD { S } .{ $,id,if,while}
+S --> C { S } .{ $,id,if,while}
+T --> C { S } .else { {}
+input:else --> state97
 
-state: 48
-S --> WD .{ S } { id,if,while,}}
+state: 51
+S --> C .{ S } { id,if,while,}}
+T --> C .{ S } else { {}
 input:{ --> state75
 
 state: 99
+S --> C { S } .{ id,if,while,}}
+T --> C { S } .else { {}
+input:else --> state97
+
+state: 2
+S --> WD .{ S } { $,id,if,while}
+input:{ --> state46
+
+state: 81
+S --> WD { S } .{ $,id,if,while}
+
+state: 49
+S --> WD .{ S } { id,if,while,}}
+input:{ --> state76
+
+state: 100
 S --> WD { S } .{ id,if,while,}}
 
-state: 96
+state: 97
 T --> C { S } else .{ {}
 
 state: 1
 WD --> while .( E ) do { {}
-input:( --> state46
+input:( --> state47
 
-state: 65
+state: 66
 WD --> while ( E ) .do { {}
-input:do --> state76
+input:do --> state77
 
-state: 76
+state: 77
 WD --> while ( E ) do .{ {}
 
 state: 26
@@ -1664,127 +1709,115 @@ state: 28
 rop --> < .{ (,false,id,not,num,true}
 
 state: 29
-rop --> == .{ (,false,id,not,num,true}
+rop --> <= .{ (,false,id,not,num,true}
 
 state: 30
+rop --> == .{ (,false,id,not,num,true}
+
+state: 31
 rop --> != .{ (,false,id,not,num,true}
 
 
 ###############·ÖÎö±í#################
-              !=       $       (       )       *       +       -       /       ;       <       =      ==       >      >=     and      do    else   false      id      if     not     num      or    then    true   while       {       }       C       E      EA      EO       I       S       T      WD     rop
-       0                                                                                                                                                      S4      S3                                              S1                      S5                                      S6      S7      S2        
-       1                     S46                                                                                                                                                                                                                                                                                
-       2                                                                                                                                                                                                                     S45                                                                                
-       3                      S8                                                                                                                                                                                                                                                                                
-       4                                                                                     S42                                                                                                                                                                                                                
-       5                                                                                                                                                                                                                     S44                                                                                
-       6             R21                                                                                                                                      S4      S3                                              S1                      S5                                     S47      S7      S2        
-       7                                                                                                                                                                                                                     S43                                                                                
-       8                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S11     S13     S15                                        
-       9      R8                      R8      R8      R8      R8      R8              R8              R8      R8      R8      R8                                                              R8                                                                                                                
-      10      R6                      R6      R6      R6      R6      R6              R6              R6      R6      R6      R6                                                              R6                                                                                                                
-      11     S30                     S18     S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                             S21
-      12      R9                      R9      R9      R9      R9      R9              R9              R9      R9      R9      R9                                                              R9                                                                                                                
-      13                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S32     S13     S15                                        
-      14      R7                      R7      R7      R7      R7      R7              R7              R7      R7      R7      R7                                                              R7                                                                                                                
-      15                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S33     S13     S15                                        
-      16                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S34     S13     S15                                        
-      17                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S35     S13     S15                                        
-      18                                                                                                                                                                                             S31                                                                                                        
-      19                     R15                                                                                                                     R15     R15             R15     R15                     R15                                                                                                
-      20                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S37     S13     S15                                        
-      21                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S36     S13     S15                                        
-      22                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S38     S13     S15                                        
-      23                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S39     S13     S15                                        
-      24                     R14                                                                                                                     R14     R14             R14     R14                     R14                                                                                                
-      25                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S40     S13     S15                                        
-      26                     R24                                                                                                                     R24     R24             R24     R24                     R24                                                                                                
-      27                     R25                                                                                                                     R25     R25             R25     R25                     R25                                                                                                
-      28                     R26                                                                                                                     R26     R26             R26     R26                     R26                                                                                                
-      29                     R27                                                                                                                     R27     R27             R27     R27                     R27                                                                                                
-      30                     R28                                                                                                                     R28     R28             R28     R28                     R28                                                                                                
-      31                                                                                                                                                                                                                      R0                                                                                
-      32      R1                      R1      R1      R1      R1      R1              R1              R1      R1      R1      R1                                                              R1                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      33      R2                      R2      R2      R2      R2      R2              R2              R2      R2      R2      R2                                                              R2                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      34      R3                      R3      R3      R3      R3      R3              R3              R3      R3      R3      R3                                                              R3                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      35     S30                     S41     S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                             S21
-      36      R5                      R5      R5      R5      R5      R5              R5              R5      R5      R5      R5                                                              R5                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      37     R10                     R10     R10     R10     R10     R10             R10             R10     R10     R10     R10                                                             R10                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      38     R11                     R11     R11     R11     R11     R11             R11             R11     R11     R11     R11                                                             R11                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      39     R12                     R12     R12     R12     R12     R12             R12             R12     R12     R12     R12                                                             R12                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      40     R13                     R13     R13     R13     R13     R13             R13             R13     R13     R13     R13                                                             R13                                                                                                             S21
-             S30                             S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      41      R4                      R4      R4      R4      R4      R4              R4              R4      R4      R4      R4                                                              R4                                                                                                                
-      42                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S64     S57     S59                                        
-      43                                                                                                                                                     S49      S3                                              S1                     S50                                     S51     S52     S48        
-      44                                                                                                                                                     S49      S3                                              S1                     S50                                     S53     S52     S48        
-      45                                                                                                                                                     S49      S3                                              S1                     S50                                     S54     S52     S48        
-      46                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S55     S13     S15                                        
-      47             R17                                                                                                                                     R17     R17                                             R17                      S5                                     S47      S7      S2        
-      48                                                                                                                                                                                                                     S75                                                                                
-      49                                                                                     S72                                                                                                                                                                                                                
-      50                                                                                                                                                                                                                     S74                                                                                
-      51                                                                                                                                                     S49      S3                                              S1             S77     S50                                     S78     S52     S48        
-      52                                                                                                                                                                                                                     S73                                                                                
-      53                                                                                                                                                     S49      S3                                              S1             S79     S50                                     S78     S52     S48        
-      54                                                                                                                                                     S49      S3                                              S1             S80     S50                                     S78     S52     S48        
-      55     S30                     S65     S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                             S21
-      56      R9                              R9      R9      R9      R9      R9      R9              R9      R9      R9      R9                                                              R9                                                                                                                
-      57                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S85     S57     S59                                        
-      58      R7                              R7      R7      R7      R7      R7      R7              R7      R7      R7      R7                                                              R7                                                                                                                
-      59                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S86     S57     S59                                        
-      60                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S87     S57     S59                                        
-      61                     S17                                                                                                                      S9     S10             S16     S12                     S14                                     S84     S13     S15                                        
-      62      R8                              R8      R8      R8      R8      R8      R8              R8      R8      R8      R8                                                              R8                                                                                                                
-      63      R6                              R6      R6      R6      R6      R6      R6              R6      R6      R6      R6                                                              R6                                                                                                                
-      64     S30                             S70     S68     S69     S71     S67     S28             S29     S26     S27     S24                                                             S19                                                                                                             S66
-      65                                                                                                                             S76                                                                                                                                                                        
-      66                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S88     S57     S59                                        
-      67             R16                                                                                                                                     R16     R16                                             R16                                                                                        
-      68                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S89     S57     S59                                        
-      69                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S90     S57     S59                                        
-      70                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S91     S57     S59                                        
-      71                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S92     S57     S59                                        
-      72                     S61                                                                                                                     S62     S63             S60     S56                     S58                                     S93     S57     S59                                        
-      73                                                                                                                                                     S49      S3                                              S1                     S50                                     S81     S52     S48        
-      74                                                                                                                                                     S49      S3                                              S1                     S50                                     S82     S52     S48        
-      75                                                                                                                                                     S49      S3                                              S1                     S50                                     S83     S52     S48        
-      76                                                                                                                                                                                                                     R23                                                                                
-      77             R18                                                                                                                                     R18     R18                                             R18                                                                                        
-      78                                                                                                                                                     R17     R17                                             R17             R17     S50                                     S78     S52     S48        
-      79             R19                                                                                                                     S96             R19     R19                                             R19                                                                                        
-      80             R20                                                                                                                                     R20     R20                                             R20                                                                                        
-      81                                                                                                                                                     S49      S3                                              S1             S97     S50                                     S78     S52     S48        
-      82                                                                                                                                                     S49      S3                                              S1             S98     S50                                     S78     S52     S48        
-      83                                                                                                                                                     S49      S3                                              S1             S99     S50                                     S78     S52     S48        
-      84     S30                     S94     S23     S20     S22     S25             S28             S29     S26     S27     S24                                                             S19                                                                                                             S21
-      85      R1                              R1      R1      R1      R1      R1      R1              R1      R1      R1      R1                                                              R1                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      86      R2                              R2      R2      R2      R2      R2      R2              R2      R2      R2      R2                                                              R2                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      87      R3                              R3      R3      R3      R3      R3      R3              R3      R3      R3      R3                                                              R3                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      88      R5                              R5      R5      R5      R5      R5      R5              R5      R5      R5      R5                                                              R5                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      89     R10                             R10     R10     R10     R10     R10     R10             R10     R10     R10     R10                                                             R10                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      90     R11                             R11     R11     R11     R11     R11     R11             R11     R11     R11     R11                                                             R11                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      91     R12                             R12     R12     R12     R12     R12     R12             R12     R12     R12     R12                                                             R12                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      92     R13                             R13     R13     R13     R13     R13     R13             R13     R13     R13     R13                                                             R13                                                                                                             S66
-             S30                             S70     S68     S69     S71             S28             S29     S26     S27     S24                                                             S19                                                                                                                
-      93     S30                             S70     S68     S69     S71     S95     S28             S29     S26     S27     S24                                                             S19                                                                                                             S66
-      94      R4                              R4      R4      R4      R4      R4      R4              R4      R4      R4      R4                                                              R4                                                                                                                
-      95                                                                                                                                                     R16     R16                                             R16             R16                                                                        
-      96                                                                                                                                                                                                                     R22                                                                                
-      97                                                                                                                                                     R18     R18                                             R18             R18                                                                        
-      98                                                                                                                                     S96             R19     R19                                             R19             R19                                                                        
-      99                                                                                                                                                     R20     R20                                             R20             R20                                                                        
+              !=       $       (       )       *       +       -       /       ;       <      <=       =      ==       >      >=     and      do    else   false      id      if     not     num      or    then    true   while       {       }       C       E      EA      EO       I       S       T      WD     rop
+       0                                                                                                                                                              S4      S3                                              S1                      S5                                      S6      S7      S2        
+       1                     S47                                                                                                                                                                                                                                                                                        
+       2                                                                                                                                                                                                                             S46                                                                                
+       3                      S8                                                                                                                                                                                                                                                                                        
+       4                                                                                             S43                                                                                                                                                                                                                
+       5                                                                                                                                                                                                                             S45                                                                                
+       6             R21                                                                                                                                              S4      S3                                              S1                      S5                                     S48      S7      S2        
+       7                                                                                                                                                                                                                             S44                                                                                
+       8                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S11     S13     S15                                        
+       9      R8                      R8      R8      R8      R8      R8              R8      R8              R8      R8      R8      R8                                                              R8                                                                                                                
+      10      R6                      R6      R6      R6      R6      R6              R6      R6              R6      R6      R6      R6                                                              R6                                                                                                                
+      11     S31                     S18     S23     S20     S22     S25             S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S21
+      12      R9                      R9      R9      R9      R9      R9              R9      R9              R9      R9      R9      R9                                                              R9                                                                                                                
+      13                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S33     S13     S15                                        
+      14      R7                      R7      R7      R7      R7      R7              R7      R7              R7      R7      R7      R7                                                              R7                                                                                                                
+      15                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S34     S13     S15                                        
+      16                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S35     S13     S15                                        
+      17                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S36     S13     S15                                        
+      18                                                                                                                                                                                                     S32                                                                                                        
+      19                     R15                                                                                                                             R15     R15             R15     R15                     R15                                                                                                
+      20                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S38     S13     S15                                        
+      21                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S37     S13     S15                                        
+      22                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S39     S13     S15                                        
+      23                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S40     S13     S15                                        
+      24                     R14                                                                                                                             R14     R14             R14     R14                     R14                                                                                                
+      25                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S41     S13     S15                                        
+      26                     R24                                                                                                                             R24     R24             R24     R24                     R24                                                                                                
+      27                     R25                                                                                                                             R25     R25             R25     R25                     R25                                                                                                
+      28                     R26                                                                                                                             R26     R26             R26     R26                     R26                                                                                                
+      29                     R27                                                                                                                             R27     R27             R27     R27                     R27                                                                                                
+      30                     R28                                                                                                                             R28     R28             R28     R28                     R28                                                                                                
+      31                     R29                                                                                                                             R29     R29             R29     R29                     R29                                                                                                
+      32                                                                                                                                                                                                                              R0                                                                                
+      33     S31                      R1     S23     S20     S22     S25             S28     S29             S30     S26     S27      R1                                                              R1                                                                                                             S21
+      34     S31                      R2     S23     S20     S22     S25             S28     S29             S30     S26     S27     S24                                                              R2                                                                                                             S21
+      35      R3                      R3      R3      R3      R3      R3              R3      R3              R3      R3      R3      R3                                                              R3                                                                                                             S21
+      36     S31                     S42     S23     S20     S22     S25             S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S21
+      37      R5                      R5     S23     S20     S22     S25              R5      R5              R5      R5      R5     S24                                                             S19                                                                                                             S21
+      38     R10                     R10     S23     R10     R10     S25             R10     R10             R10     R10     R10     R10                                                             R10                                                                                                             S21
+      39     R11                     R11     S23     R11     R11     S25             R11     R11             R11     R11     R11     R11                                                             R11                                                                                                             S21
+      40     R12                     R12     R12     R12     R12     R12             R12     R12             R12     R12     R12     R12                                                             R12                                                                                                             S21
+      41     R13                     R13     R13     R13     R13     R13             R13     R13             R13     R13     R13     R13                                                             R13                                                                                                             S21
+      42      R4                      R4      R4      R4      R4      R4              R4      R4              R4      R4      R4      R4                                                              R4                                                                                                                
+      43                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S65     S58     S60                                        
+      44                                                                                                                                                             S50      S3                                              S1                     S51                                     S52     S53     S49        
+      45                                                                                                                                                             S50      S3                                              S1                     S51                                     S54     S53     S49        
+      46                                                                                                                                                             S50      S3                                              S1                     S51                                     S55     S53     S49        
+      47                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S56     S13     S15                                        
+      48             R17                                                                                                                                             R17     R17                                             R17                      S5                                     S48      S7      S2        
+      49                                                                                                                                                                                                                             S76                                                                                
+      50                                                                                             S73                                                                                                                                                                                                                
+      51                                                                                                                                                                                                                             S75                                                                                
+      52                                                                                                                                                             S50      S3                                              S1             S78     S51                                     S79     S53     S49        
+      53                                                                                                                                                                                                                             S74                                                                                
+      54                                                                                                                                                             S50      S3                                              S1             S80     S51                                     S79     S53     S49        
+      55                                                                                                                                                             S50      S3                                              S1             S81     S51                                     S79     S53     S49        
+      56     S31                     S66     S23     S20     S22     S25             S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S21
+      57      R9                              R9      R9      R9      R9      R9      R9      R9              R9      R9      R9      R9                                                              R9                                                                                                                
+      58                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S86     S58     S60                                        
+      59      R7                              R7      R7      R7      R7      R7      R7      R7              R7      R7      R7      R7                                                              R7                                                                                                                
+      60                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S87     S58     S60                                        
+      61                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S88     S58     S60                                        
+      62                     S17                                                                                                                              S9     S10             S16     S12                     S14                                     S85     S13     S15                                        
+      63      R8                              R8      R8      R8      R8      R8      R8      R8              R8      R8      R8      R8                                                              R8                                                                                                                
+      64      R6                              R6      R6      R6      R6      R6      R6      R6              R6      R6      R6      R6                                                              R6                                                                                                                
+      65     S31                             S71     S69     S70     S72     S68     S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S67
+      66                                                                                                                                     S77                                                                                                                                                                        
+      67                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S89     S58     S60                                        
+      68             R16                                                                                                                                             R16     R16                                             R16                                                                                        
+      69                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S90     S58     S60                                        
+      70                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S91     S58     S60                                        
+      71                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S92     S58     S60                                        
+      72                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S93     S58     S60                                        
+      73                     S62                                                                                                                             S63     S64             S61     S57                     S59                                     S94     S58     S60                                        
+      74                                                                                                                                                             S50      S3                                              S1                     S51                                     S82     S53     S49        
+      75                                                                                                                                                             S50      S3                                              S1                     S51                                     S83     S53     S49        
+      76                                                                                                                                                             S50      S3                                              S1                     S51                                     S84     S53     S49        
+      77                                                                                                                                                                                                                             R23                                                                                
+      78             R18                                                                                                                                             R18     R18                                             R18                                                                                        
+      79                                                                                                                                                             R17     R17                                             R17             R17     S51                                     S79     S53     S49        
+      80             R19                                                                                                                             S97             R19     R19                                             R19                                                                                        
+      81             R20                                                                                                                                             R20     R20                                             R20                                                                                        
+      82                                                                                                                                                             S50      S3                                              S1             S98     S51                                     S79     S53     S49        
+      83                                                                                                                                                             S50      S3                                              S1             S99     S51                                     S79     S53     S49        
+      84                                                                                                                                                             S50      S3                                              S1            S100     S51                                     S79     S53     S49        
+      85     S31                     S95     S23     S20     S22     S25             S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S21
+      86     S31                             S71     S69     S70     S72      R1     S28     S29             S30     S26     S27      R1                                                              R1                                                                                                             S67
+      87     S31                             S71     S69     S70     S72      R2     S28     S29             S30     S26     S27     S24                                                              R2                                                                                                             S67
+      88      R3                              R3      R3      R3      R3      R3      R3      R3              R3      R3      R3      R3                                                              R3                                                                                                             S67
+      89      R5                             S71     S69     S70     S72      R5      R5      R5              R5      R5      R5     S24                                                             S19                                                                                                             S67
+      90     R10                             S71     R10     R10     S72     R10     R10     R10             R10     R10     R10     R10                                                             R10                                                                                                             S67
+      91     R11                             S71     R11     R11     S72     R11     R11     R11             R11     R11     R11     R11                                                             R11                                                                                                             S67
+      92     R12                             R12     R12     R12     R12     R12     R12     R12             R12     R12     R12     R12                                                             R12                                                                                                             S67
+      93     R13                             R13     R13     R13     R13     R13     R13     R13             R13     R13     R13     R13                                                             R13                                                                                                             S67
+      94     S31                             S71     S69     S70     S72     S96     S28     S29             S30     S26     S27     S24                                                             S19                                                                                                             S67
+      95      R4                              R4      R4      R4      R4      R4      R4      R4              R4      R4      R4      R4                                                              R4                                                                                                                
+      96                                                                                                                                                             R16     R16                                             R16             R16                                                                        
+      97                                                                                                                                                                                                                             R22                                                                                
+      98                                                                                                                                                             R18     R18                                             R18             R18                                                                        
+      99                                                                                                                                             S97             R19     R19                                             R19             R19                                                                        
+     100                                                                                                                                                             R20     R20                                             R20             R20                                                                        

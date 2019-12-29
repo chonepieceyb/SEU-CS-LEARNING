@@ -35,7 +35,7 @@ unordered_map<string, LR1State> LR1Parser::calNextStates( LR1State& s)
 		if (currentNode == nullptr) {
 			continue;       //如果小点在最右边了...
 		}
-		if (currentNode->get_node_name() == end || currentNode->get_node_name() == none) {
+		if (currentNode->get_node_name() == end || currentNode->get_node_name() == none) {     //终结符（如 ‘$'跳过)
 			continue;
 		}
 		string edge = currentNode->get_node_name();

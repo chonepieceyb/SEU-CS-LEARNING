@@ -5,6 +5,10 @@
 ProductionStack::ProductionStack(NonTerminator* head, int production_id):Production( head,  production_id)
 {
 	stateInit();
+	if (head->getProductionSize(production_id) == 1 && (head->getNodeInProduction(production_id, 0)->get_node_name() == "none")) {
+		//如果是这种形式的   A -> none ,将它的堆栈状态设置为最后一位，也就是直接可以归约
+		stackState = 1;
+	}
 }
 
 
