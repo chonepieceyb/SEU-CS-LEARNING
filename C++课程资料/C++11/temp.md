@@ -1,179 +1,431 @@
 # C++11新特性
 
-* **noexcept** ,`void foo() noexcept`这个关键字可以保证不丢异常。同时在**noexcept**内可以放置**bool**表达式，表明在什么时候保证不抛出异常，eg:`void foo() noexcept(true);`
-* **override** ,这个关键字可以确保在子类的函数中，该函数一定是重写父类的函数。(如果不小心写错了，编译器会报错)
-* **final** 关键字，1 写类的时候如果加上了**final**关键字，那么这个类不能被继承，2 如果用**final**修饰虚函数，那么该虚函数不能被**override** 
-* **decltype** 通过使用**decltype** 这个关键字，可以让编译器找到一个表达式的type。这个关键字事实上类似于**typeof**这类函数的作用，只是现在**decltype**已经被写入标准里了
+* **Variadic Templates** 可变模板参数，能够实现模板参数数目可变，类型可变
 
-    >By using the new decltype keyword,you can let the compiler find out the type of an expression. This is the realizaton of the other requested typeof feature. However, the existing typeof implementations were inconsistent and incomplete, so c++11 intorduced a new key word.
-    >
-* **Lambdas** 允许定义**inline的函数，可以被作为参数或者局部对象来使用，**Lambdas** 改变了C++标准库的使用方法。
+* **RValue reference** 右值引用，有了右值引用，出现了移动复制构造函数，和移动赋值函数，可以极大地提升stl容器的效率
 
-## noexcept
+## Variadic Templates
 
-`void foo() noexcept(true);`
-
-在上面的代码中，**noexcept**表明了`foo`不会抛出异常，但是如果`foo()`抛出异常了，那么程序就会终止，调用`std:terminate()`，`terminate()`这个函数在默认情况下又会调用`std::abort()`(这个函数会结束程序)
-
-ps: **noexcept**可以用在**移动构造函数**上，(待深入研究，先插个桩)
-
->You need to  inform C++(specially std::vector) that **your move constructor and destructor does not throw** Then the move constructor will be called when the vector **grows**. **If the constructor is not noexept, std::vector can't use it** since then it can't ensure the exception guarantees demanded by the standard.
-(注意 growable containers （会发生 memory reallocation)只有两种，vector和 deque)
-
-## override 
+语法范例:
 
 ```c++
-struct Base{
-    virtual void vfunc(float){};
-};
-struct Derrived1:Base{
-    virtual void vfunc(int){
-        /*
-        这个函数，按照原意我打算重写父类的虚函数，
-        但是我不小心参数写错了，这时候编译器会认为这个函数是一个新的函数
-        而没有实现重写，换言之不会报错
-        */
-    }
+// 递归边界，最后一次调用print(args...)
+// args...已经没有参数了
+void print()
+{
+
 }
-struct Derived2:Base{
-    virtual void vfunc(int ) override{}
-    /*
-    这里加上了override关键字
-    告诉编译器这一定是重写父类的虚函数，
-    但是这里参数列表写错了
-    编译器会报错
-    */
+
+//  typename...Types 表示一包模板
+// 任意个数任意类型的模板
+template<typename T, typename...Types>
+void print(const T& first Arg,const Types&...args)
+{
+    cout<<firstArg<<endl;
+    print(args...);
 }
-```
+// 用 variadic templates 可以方便地实现函数递归
 
-## decltype
-
-eg:
-```cpp
-map<string,float> coll;
-// 新写法
-decltype(coll)::value_type elem; // 获取容器中元素的类型，来声明一个新的元素
-// 旧写法
-map<string,float>::value_type elem;
-
-/*新旧写法的差别在于，新写法
-可以用 decltype来获得容器的类型
-而旧写法必须明确知道容器类型
+/* 
+    简单地理解记忆:
+    ...args 表示封包
+    args... 表示解包
+    所以上面的参数 const Type& ...args 表示 args是一包
+    而 print(args...)表示把
+    原本的一包进行解包分成一个参数和
+    另外一包
+    只是帮助理解
 */
 ```
 
-**decltype** defines a type equivalent to **the type of an expression** realization of the often requested **typeof** feature
+ps : 可以用`sizeof...(args)`来获得一包里有几个参数 
 
-### 三大应用:
+Variadic Templates, 模板参数可变,模板参数可变有两层含义:
 
-* to declare return types
+* 参数个数变化(variable number) 利用**参数个数减少的特性**实现递归函数的调用，使用function template 完成.
 
-    ```c++
-    template  <typename T1,typename T2>
-    auto add(T1 x, T2 y)->decltype(x+y); // 里哟个和lambdas表达式类似的语法声明返回类型
-    ```
+* 参数类型(different type) 利用**参数个数注意减少**导致**参数类型也注意减少**的特性，实现递归继承或者递归复合，用 class template 实现。
 
-* use decltype **in metaprogramming**
+ps: 如果参数类型都相同，只想实现参数个数不定的话，可以使用 `initializer_list<T>`
 
-    ps:关于typename 一篇很好的文章： http://feihu.me/blog/2014/the-origin-and-usage-of-typename/
+### Variadic Templates 实战
 
-    ```c++
-    template<typename T>
-    void test18_decltype(T obj)
+* **example1** 递归函数调用
+  
+  ```c++
+    void printX(){};   //递归边界
+
+    template<typename T,typename... Types>
+    void printX(const T& firstArg,const Types& ...args)
     {
-        // 有了 decltype可以这么用
-        typedef typename decltype(obj)::iterator iType;
-        /*
-        这里必须要加 typename
-        应为这里使用了泛型编程，
-        typename告诉编译器 T::iterator是一个类型，
-        详情参考上面给出的文章
-        */
-        }
-    ```
-
-* **pass the type of a lambda**
-    当我们需要把**lambda**组为 **hash function**或者**ordring or sorting criterion**的时候，我们需要用`decltype`获取lambda的type传递给模板参数，如下
-    ```c++
-    auto cmp =[](const Person&p1, const Person& p2){
-        return p1.lastname()<p2.lastname();
+        cout<<firstArg<<endl;  // 打印第一个
+        printX(args...);      // 递归调用 又把 args... 分成 一个 + 剩下的一包。
     }
-    std::set<Person,decltype(cmp)> cool(cmp); 
-    // 不但需要传递cmp对象
-    //（一定还要传递cmp作为参数否则大概率会报错，因为lambda函数是一个匿名类
-    //没有默认构造函数），
-    //还需要在模板指定类型，
-    //这时候就可以用decltype来获得类型了。
+    // 调用
+    printX(1,2,1.5,"hello");
+    /*
+        输出结果:
+        1
+        2
+        1.5
+        hello
+    */
 
-    ```
+    /*
+        对于模板，模板有特化的概念，
+        谁更加特化就调用谁
+        eg:
+        template<typename...Types>
+        void printX(const Type&...args){...}
+        这个函数可以和上面的函数共存，因为特化的程度不一样
+        上面的版本更加特化
+    */
+  ```
 
-## Lambdas
+* **example2** 利用 Variadic Template 模拟 printf
 
->A lambda is a definition of functionality that can be defined inside statement and expressions. Thus, you can use as lambda as an **inline finction**，Theminimal lambda function has no parameters and simply does something
+  ```c++
+    //边界条件
+    void printf(const char* s)
+    {
+        while(*s)
+        {
+            if(*s =='% && *(++s)!='%)
+                thorw std::runtime_error("invalid format string:missing arguments");
+            std::cout<<*s++;
+        }
+    }
+
+    template<typename T, typename...Args>
+    void printf(const char* s, T value, Args ...args)
+    {
+        while(*s){
+            if(*s =='%' && *(++s) !='%'){
+                std::cout << value;
+                printf(++s,args...) // 这时候 value已经被消耗掉了，args分解成了 一个 value 和 一包 args,如果args没有了会调用上面那个函数
+                return ;
+            }
+            std::cout<<*s++;      //只输出当前字符
+        }
+        // 字符串扫描完后面还有参数，说明值给的太多了
+        throw std::logic_error("extra arguments provided to printf"); 
+    }
+
+  ```
+
+* **example3** 用 Variadic Templates 实现多参数的 max函数
+
+  ```c++
+
+    //http://stackoverflow.com/questions/3634379/variadic-templates
+    int maximum(int n)
+    {
+        return n;
+    }
+
+    template<typename...Args>
+    int maximum(int n, Args...args )
+    {
+        return std::max(n,maximum(args...));
+    }
+  ```
+
+* **example4** 用不同于一般的方法处理 first,和 last元素
+
+  ```c++
+    //output operator for tuples
+    template<typename...Args>
+    ostream& operator<<(ostream& os, const typle<Args...>& t){
+        os<<"["
+            PRINT_TUPLE<0,sizeof...(Args),Args...>::print(os,t);
+        return os <<"]";
+    };
+    
+    template <int IDX, int MAX ,typename...Args>
+    struct PRINT_TYPLE{
+        static void print(ostream& os,const tuple<Args...> & t){
+            os<< get<IDX>(t) << (IDX+1 == MAX ?"",",");
+            PRINT_TUPLE<IDX+1,MAX,Args...>::print(os,t);
+        }
+    };
+
+    // 边界，模板偏特化,精髓
+    template <int MAX,typename ...Args>
+    struct PRINT_TUPLE<MAX,MAX,Args...>{
+        static void print(std::ostream& os, const tuple<Args...>& t) {}
+    };
+
+    /*
+    一些个人的思考：
+    模板的递归和普通的递归还是不同的，
+    模板的递归是在编译时决定的(感觉
+    递归了几次就会真的编几个函数)因为模板事实上是采用一种liline的方式。
+    而普通的运行时递归会在运行时压栈。
+    (回想一下我们是怎么用汇编写递归代码的)
+    */
+  ```
+
+    ps: 关于模板递归一些个人的思考(不一定对欢迎指正)
+
+  * 模板的递归和普通的递归还是不同的，模板的递归是在编译时决定的(感觉递归了几次就会真的编几个函数)因为模板事实上是采用一种liline的方式。
+  * 而普通的运行时递归会在运行时压栈。
+        (回想一下我们是怎么用汇编写递归代码的)
+  * 因此个人认为模板递归的效率应该会比普通递归的效率高。
+
+* **example5** 用 Variadic Templates 实现递归继承,tuple实现
+
+  ```c++
+    #include<iostream>
+    using namespace std;
+
+    template<typename...Args>
+    class Tuple; //类声明
+    
+    // 类特化
+    template<>
+    class Tuple<> {};
+
+    //类定义 + 偏特化
+    template<typename Head, typename...Tail>
+    class Tuple<Head, Tail...>: private Tuple<Tail...> 
+    {
+        typedef Tuple<Tail...> inherited;
+        public:
+            Tuple(Head v, Tail...vtail):m_head(v),inherited(vtail...){};//这里的 inherited,表示调用父类的构造函数
+            Head head(){return m_head;};
+            inherited& tail(){return *this;};	 
+        protected:
+            Head	    	m_head;
+    };
+
+    int main(){
+        Tuple<int,float,string> t = Tuple<int,float,string>(41,6.3,"nico");
+        printf("(%d,%f,%s)\n",t.head(),t.tail().head(),t.tail().tail().head());
+    }
+
+  ```
+  
+  运行结果:
+  ![figure1](./resources/1.jpg)
+
+  上述代码的继承结构:
+
+  ![figure1](./resources/2.jpg)
+   
+  内存空间:
+  ![figure1](./resources/3.jpg)
+  对于 t , `t.head()`指向 41， `t.tail()`指向方框框起来的区域,这里的  `inherited& tail(){return *this; }`挺精髓的。
+
+* example7 用 Variadic Templates 进行递归复合
+
+  ```c++
+    template<typename...Values> class tup; //类声明
+    template<> class tup<>{};//边界类，特化
+
+    // 类定义，偏特化
+    template<typename Head, typename...Tail>
+    class tup<Head,...Tail>
+    {
+        typedef tup<Tail...> composited;
+        protected:
+            composited m_tail; //组合变量
+            Head m_head;
+        public:
+            tup(){}
+            tup(Head v, Tail...tail):
+            m_tail(vtail),m_head(v){}
+
+            Head head(){return m_head;}
+            composited& tail(){return m_tail;} //这里一定要用引用返回
+    }
+    //使用方法和例子6相同
+  ```
+  组合关系:
+  ![figure1](./resources/4.jpg)
+
+  ## Rvalue reference 右值引用
+
+> Rvalue references are a **new reference** type introduced in C++0x that help solve the porblem of **unnecessary copying** and enable **pefect forwarding**. When the **right-hand side** of an assignment is an **rvalue**, the the left-hand side object can **steal** resources from the right-hand side object **rather than** performing a separate allocation, thus enable **move semantics**
 >
+
+右值引用可以减少不必要的copy。当赋值操作的右手边是一个**右值**，可以**偷**右手边资源，而不需要非必要的拷贝。
+
+### 左值和右值
+
+* **左值 Lvalue**: 可以出现在 **operator=** 的左边，也就是变量(也可以放在右边)
+* **右值 Rvalue**: 只能出现在 **operator=** 的右侧。也就是**临时对象**，临时变量没有名字。
+
+eg 1: 
+
+```c++
+    int a =9;
+    int b =4;
+    a = b; //ok
+    a+b = 42 // error ,a+b是右值
+```
+
+eg2 :
+
+```c++
+int foo(){return 5;}
+...
+int x = foo() ; // ok x是左值
+int* p = &foo(); //Error，之前对右值无法取地址
+fool() =7;        // error ,右值无法赋值
+```
+
+### 右值引用
+
+右值引用可以减少不必要的copy。当赋值操作的右手边是一个**右值**，可以**偷**右手边资源，而不需要非必要的拷贝。
+
+所谓的**偷**指的是指针的**浅拷贝**,直接进行指针赋值，进行**move**.
+
+copy 操作 vs move 操作
+
+![figure5](./resources/5.jpg) ![figure6](./resources/6.jpg)
+
+在这种情况下为什么浅拷贝是被允许的?
+
+* 临时变量本身不能够放在赋值符号的右边，所以临时变量被创建之后其内存里的内容不会被更改的，直接用指针指向临时变量的内存区域十分安全。
+* 如果我们能够保证一个变量之后不再使用它，我们可以把左值当成右值(将使用移动构造函数).
+  
+  ```c++
+    M c1(c);
+    M c2(std::move(c1));
+      c1.swap(c2);
+    // 必须要保证 之后不再继续使用 c1
+  ```
+
+### 右值引用语法
+
+```c++
+iterator
+insert(const_iterator __position, const value_type& x); //普通引用
+
+iterator
+insert(const_iterator __position, value_type&& __x); // 右值引用的语法， x是一个临时变量 或者 使用了 std::move
+
+```
+
+#### 右值引用的问题 unperfect forward
+
+```c++
+void process(int & i){
+  cout<<"process(int&):"<<i<<endl;
+}
+void process(int && i){
+  cout<<"process(int&&):"<<i<<endl;
+}
+
+void forward(int && i){
+  cout<<"fowrard(int &&):"<<i<<",";
+  process(i);
+}
+
+int a =0; 
+porcess(a);// 调用 process(int &)
+process(1)   // 调用 process(int &&)
+process(move(a)); //调用 process(int &&)
+fworard(2) ; // fworard(int&&):2, process(int&):2
+fworard(move(a)) ; // fworard(int&&):0, process(int&):0
+```
+
+如上所述，RValue 经过 forward 再调用两外一个函数就变成了 LValue，原因是经过第一次 forward函数之后，原本的RValue有了参数名称，变成了左值(named object)，所以在forward内部调用了左值的版本.
+
+#### Perfect Forwarding
+
+> **Perfect forwarding** allows you to write a single function template that takes n arbitrary arguments and forwrds them **transparentlly** to **another arbitrary function**. The **nature** of the argument(modifiable,const,lvalue or **rvalue**) is preserved in this forwarding process
+>
+
+通过标准库提供的 std::forward实现 perfect forward
+
 eg:
 
 ```c++
-auto I = []{
-    std::cout<<"hello lambda"<<std::endl;
-};
-I();
+template<typename T1, typename T2>
+void function A(T1&& t1, T2 && t2)
+{
+  functionB(std::forward<T1>(t1), std::forward<T2>(t2));
+}
+
 ```
 
-### Lambdas的语法
+### move-aware class
 
-$[...](...)multable_{opt}\:throwSpec_{opt}\:->\:retType_{opt}\{...\}$
+eg:
 
-ps:带有opt下标表示可选（当然也可不选），如果都没有选可以不写小括号，否则必须写小括号
-
-* $[...]$ **lambda introducer**
-    可以用来捕获(在lambda函数提内使用)外部变量(**nonstatic outside object**),如果是**Static** (eg:`std::out`)可以直接使用
-  * [=] 表示外部变量是通过**传值**的方式传给**lambda**
-  * [&] 表示外部变量是通过**传引用**的方式传给**lambda**
-  * 传值和传引用的区别只可意会不可言传 `^_^`
-
-  `[=,&y]`表示外部的 y 采用引用方式捕获，其它的所有的外部object采用传值的方式捕获
-  `[x]` 表示外部的 x 采用传值的方式捕获
-
-  ```c++
-  int id =0 ;
-  auto f =[id]()mutable{
-      std::cout << "id:" << id << std::endl;
-      ++id; // OK, 这里只有带了 mutable才能修改 id
+```c++
+class MyString
+{
+  private :
+    char* _data;
+    size_t _len;
+    void __init_data(const char*s){
+      _data = new char[_len+1];
+      memcpy(_data,s,_len);
+      _data[_len] ='\0';
+    }
+  public:
+  //default constructor
+  MyString():_data(NULL),_len(0){}
+  // constructor
+  MyString(const char* p):_len(strlen(p)){
+    _init_data(p);
+  }
+  // copy constructor
+  MyString(const MyString & str):_len(str._len){
+    _init_data(str.data);
+  }
+  // move constructor 。移动构造函数必须加上 nonexcept 关键字
+  MyString(MyString&& str) noexcept
+  :_data(str._data), _len(str._len){
+    // 上面的指针赋值是一个浅拷贝
+    str._len =0; 
+    str._data = NULL ; 
+    //一定把原指针设成NULL
+    // 否则可能导致临时变量销毁的时候
+    //其析构函数把内存空间也销毁了， 
+    //这不是我们想要的
+    //设置成NULL要配合析构函数，判断
+    //指针是不是NULL再delete
   }
 
-  // 上述代码等价于 (不完全等价，辅助理解)
-  class Functor{
-      private:
-        int id = 42; // copy of ouside id 
-      public :
-        void operator()(){
-            // 重载 ()方法
-            std::cout << "id:" << id << std::endl;
-             ++id; 
-        }
-  };
-  Functor f;
-  // 所以 Lambda的 Type相当于一个
-  // 匿名的函数对象(function object or functor)
-  ```
+  // copy assignment 
+  MyString& operator= ( const MyString& str){
+    if( this != &str){
+      if(_data) delete _data; // 不是空指针才 delete
+      len = str._len;
+      _init_data(str.data); //COPY
+    }else{
 
-* $(...)$  **the parantheses for the parameters** 
-    这里面就是像写一般函数一样，放参数
+    }
+    return *this
+  }
 
-* $multable$ 是否可以修改被捕获的对象,如果是采用**传引用** 捕获的话不用加上**multabe**也可以修改
+  //move assignment
+  MyString& operator=(MyString&& str) noexcept{
+    // 先判断是不是自我赋值
+    if(this !=&str){
+      // 判断空然后释放原有的空间
+      if(_data) delete _data; 
+      _len = str._len;
+      _data = str._data; //MOVE，浅拷贝
+      // 下面部分同 move ctor，很重要
+      str._len =0;
+      str._data =NULL; //配合析构函数,重要
+    }else{}
+    return *this;
+  }
 
-* $throwSpec$ 异常说明，比如可以加上`noexcept`表明不抛出异常
-* $retType$ 指定返回的类型，如果不指定由函数体内的`return`语句自动推导
-* $\{...\}$, 函数体
+  // dtor
+  virtual ~MyString(){
+    ++Dtor;
+    if(_data){
+      delete _data;
+    }
+  }
+}
+```
 
-
-ps: **c++20**给lambda添加了很多新特性，在**c++20** 中，lambda甚至可以使用模板参数.....待研究，先插个桩 : 
-https://zh.cppreference.com/w/cpp/language/lambda
-
-### Lambda 注意事项
-
-* Lambda 类似与一个函数对象
-* Lambda 没有默认构造函数(很多的错误来源，比如在使用很多STL(如set)的时候)
-* Lambda 没有赋值操作符
-* 在STL中中函数，**Function object** 是一个非常有力的方式来自定义STL算法的部分行为(如比较方式)，但是写**Function object**（详情参照**Lambda 语法**等价于的部分）需要我们写类，有了**Lambda**之后就方便了很多。
+在移动复制构造函数里的NULL，就是下面这张图中的红叉
+![figure6](./resources/6.jpg) 
