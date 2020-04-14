@@ -62,3 +62,144 @@ the problem is how to design a protocal that
   A bound must exixt on the number of times for the processes waiting for the
 
   不能无限地等待下去，无法进入临界区, 不能出现饥锇现象(有一个在临界区，其它所有的都在等)
+
+算法2:
+
+```c++
+Process Pi
+do{
+  flag[i] = true;
+  while(flag[j] == true);
+      critical section
+  flag[i] = false;
+      critical section
+  flag[i] = falase;
+}
+Process Pj
+do{
+  flag[j] = true;
+  while(flag[i] ==true);
+      critical section;
+  flag[j] = false;
+      remainder
+  section
+}while(true);
+
+// 当同时举手，也就是当第一行代码交替进程的时候
+// 会导致flag[i] 和 flag[j] 同时为true的时候，导致了死锁。
+// 不能中断的动作是原子动作
+```
+
+算法3:
+
+```c++
+ProcessPi
+do{
+  flag[i] = true;
+  turn = j;
+  while(flag[j] = true && turn ==j);
+      critical section
+  flag[i] = false;
+      remainder section
+}while(true)
+
+// turn 只有一个值可以避免 无限等待的问题 和 互斥访问的问题
+// 至于空闲让进，如果临界区是空闲的，必有一个flag是 false, 又由于只有一个turn，所以空闲让进。
+
+```
+
+## 硬件方式的同步
+
+1. 在访问临界区的时候关中断，这样就不会被打断了，虽然简单，但是存在问题.
+    * 在访问临界区代码的时候，发生紧急事件。
+    * 对于多CPU架构采用这种方式意味着要关闭所有CPU的中断(又涉及到多CPU之间的等待和通信)
+
+2. 原子操作不能打断。
+
+```c++
+Process Pi
+do{
+  while(TestAndSet(lock));
+    critical section
+  lock = false;
+    remainder section 
+}
+```
+
+如果两个 `TestAndSet()` are executed simultaneously each on a different CPU, they will be ren sequeitially in som arbitrary order.
+
+上述算法的问题是，争夺锁没有排队，可能导致饥锇现相
+
+算法2:
+
+Bounded-waiting with TestAndSet()
+
+```c++
+do{
+  Waiting[i] = true;
+  key = true;
+  while(Waiting[i]==true && key == true) key = TestAndSet(lock);
+  Waiting[i] = fakse; // key-fakse
+    Waiting[i] = false;
+       critical section
+  j =(i+1)%n;
+  while((j!=i)&& Waiting[j.] ==false ) j =(j+1)%n;
+  if (j==i) lock = false ;
+  else Waiting[j] = false; // 把waiting[j] = false , 但是不设置 lock为false,就意味着只有 j这个进程能够打破while循环
+  remainder section
+  
+  /*
+  因为只有 j的 waiting 被设为 false了，这时候不管 lock是否为false，j这个排在前面的进程都可以进来。而排在后面的进程，其waiting都是true，并且lock这时候是true，所以其它的进程都进步来
+  这个waiting[j] 可以比喻为后门。
+  
+  临界区有正门(lock)和后门(waiting)，不管是正门还是后门都只能从里面开。
+  进入临界区的进程根据现在有没有进程在排队来打开正门或者后门
+  */
+}while(true);
+
+```
+
+## 信号量
+
+信号量可以看成一个对象，它有一个整数值，并且有两个原子操作。
+
+```c++
+wait(S){
+  while(S<=0) waiting;
+  S.value--;
+}
+```
+
+* Binary semaphore 
+  互斥锁
+
+* Counting semaphore
+
+用信号量解决多个生产者的问题
+
+```c++
+do{
+  // produce an item
+  wait(empty);
+  wait(mutex);  //互斥锁
+    Critical Section
+  signal(mutex);
+  signal(full);
+}while(true)
+
+```
+
+```c++
+do{
+  wait(full);
+  wait(mutex);
+    Critical Section
+  signal(mutex);
+  signal(empty);
+
+  // consume the item in nextc
+}while(TRUE)
+
+
+
+```

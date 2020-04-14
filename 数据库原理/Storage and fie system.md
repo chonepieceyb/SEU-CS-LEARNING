@@ -83,3 +83,6 @@ alternatives:
 
 **Primary index** : in a sequentially ordered file, the index whose search key sepcifies the  sequential order of th file(主键对应的索引)
 
+## Bitmap
+
+Bitmap 很容易做存在查询。
