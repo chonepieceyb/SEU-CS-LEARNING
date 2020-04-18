@@ -171,9 +171,10 @@ wait(S){
 ```
 
 * Binary semaphore 
-  互斥锁
+  互斥锁，互斥型信号量
 
 * Counting semaphore
+  计数型信号量
 
 用信号量解决多个生产者的问题
 
@@ -203,3 +204,59 @@ do{
 
 
 ```
+
+### Readers and Writers Problem (读者-写者问题)
+
+脏数据: 前后数据不一致，写的进程修改了一半，读的进程就读数据了
+
+* 同一时刻允许多个读进程读数据.
+* 同一时刻只允许一个写进程写数据.
+  
+#### 用信号量解决读者写者问题
+
+Shared Data
+
+* Data set 
+* Semaphore mutex initialized to 1
+* Seaphore wrt initialized to 1
+* Integer readcount initialized to 0
+
+写者:
+
+```c++
+do{
+  wait(wrt);  // 判断能不能写
+    Critical Section
+    // writing is performed
+  signal(wrt);
+
+}while(TRUE)
+
+```
+
+读者:
+
+```c++
+do {
+  wait(mutex);  //对 readcount变量进行保护，互斥锁
+    readcount++ // Critical Section
+    if(readcount ==1) wait(wrt); 
+    // 如果是第一个读者，需要判断写者
+    // 有没有在写，同时读者在读的时候
+    // 把 wrt 信号量 -1 是的写者在读
+    //的时候不能写了
+    signal(mutex) // 这里 signal 必须在 if 语句之后，因为前面的 if 语句对 readcount 进行了判断
+        // reading is performed
+    wait(mutex);
+      readcount--; // Crital Section
+      if(readcount ==0) signal(wrt);
+      // 如果是最后一个读者，wrt=1，表明这时候没有读者了，写者可以开始写了
+    signal(mutex); // 同上面那个 mutex
+}while(TRUE);
+
+```
+
+上述代码对读者友好，对读者很不友好，可能导致写者饥锇
+
+### 哲学家问题
+
