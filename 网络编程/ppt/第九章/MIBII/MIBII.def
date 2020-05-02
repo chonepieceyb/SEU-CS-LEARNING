@@ -1,0 +1,8 @@
+; MIBII.def : Declares the module parameters for the DLL.
+
+LIBRARY      "MIBII"
+DESCRIPTION  'SnmpDll Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	Begin_Collect @2

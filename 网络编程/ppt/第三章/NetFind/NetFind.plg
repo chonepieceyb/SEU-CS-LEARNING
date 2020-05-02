@@ -1,0 +1,78 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: NetFind - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "midl.exe /nologo /D "_DEBUG" /tlb "Debug/NetFind.tlb" /mktyplib203 /win32 "E:\master\myproject\vc\NetFind\NetFind.odl""
+Creating command line "rc.exe /l 0x804 /fo"Debug/NetFind.res" /i "Debug" /d "_DEBUG" /d "_AFXDLL" "E:\master\myproject\vc\NetFind\NetFind.rc"" 
+Creating temporary file "C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCA.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Debug/NetFind.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\master\myproject\vc\NetFind\AutoSearchCtl.cpp"
+"E:\master\myproject\vc\NetFind\AutoSearchPpg.cpp"
+"E:\master\myproject\vc\NetFind\NetFind.cpp"
+"E:\master\myproject\vc\NetFind\PollingCtl.cpp"
+"E:\master\myproject\vc\NetFind\PollingPpg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCA.tmp" 
+Creating temporary file "C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCB.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Debug/NetFind.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\master\myproject\vc\NetFind\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCB.tmp" 
+Creating temporary file "C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCC.tmp" with contents
+[
+PCInfoDll.lib DevMibInfoDll.lib ws2_32.lib mgmtapi.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/NetFind.pdb" /debug /machine:I386 /def:".\NetFind.def" /out:"Debug/NetFind.ocx" /implib:"Debug/NetFind.lib" /pdbtype:sept 
+.\Debug\AutoSearchCtl.obj
+.\Debug\AutoSearchPpg.obj
+.\Debug\NetFind.obj
+.\Debug\PollingCtl.obj
+.\Debug\PollingPpg.obj
+.\Debug\StdAfx.obj
+.\Debug\NetFind.res
+]
+Creating command line "link.exe @C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCC.tmp"
+Creating temporary file "C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCD.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\NetFind.ocx"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+]
+Creating command line "C:\DOCUME~1\jtao\LOCALS~1\Temp\RSPCD.bat"
+Creating Type Library...
+Processing E:\master\myproject\vc\NetFind\NetFind.odl
+NetFind.odl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\oaidl.idl
+oaidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\objidl.idl
+objidl.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\unknwn.idl
+unknwn.idl
+Processing C:\Program Files\Microsoft Visual Studio\VC98\INCLUDE\wtypes.idl
+wtypes.idl
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AutoSearchCtl.cpp
+AutoSearchPpg.cpp
+NetFind.cpp
+PollingCtl.cpp
+PollingPpg.cpp
+Generating Code...
+Linking...
+   Creating library Debug/NetFind.lib and object Debug/NetFind.exp
+<h3>Output Window</h3>
+Registering ActiveX Control...
+
+
+
+<h3>Results</h3>
+NetFind.ocx - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

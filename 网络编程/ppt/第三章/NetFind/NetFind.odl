@@ -1,0 +1,140 @@
+// NetFind.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (NetFind.tlb) that will become a resource in
+// NetFind.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(D44628B2-9282-11D3-B19B-0000E87780F5), version(1.0),
+  helpfile("NetFind.hlp"),
+  helpstring("NetFind ActiveX Control module"),
+  control ]
+library NETFINDLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CAutoSearchCtrl
+
+	[ uuid(D44628B4-9282-11D3-B19B-0000E87780F5),
+	  helpstring("Dispatch interface for AutoSearch Control"), hidden ]
+	dispinterface _DAutoSearch
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CAutoSearchCtrl)
+			[id(DISPID_BACKCOLOR), bindable, requestedit] OLE_COLOR BackColor;
+			[id(DISPID_CAPTION), bindable, requestedit] BSTR Caption;
+			[id(DISPID_APPEARANCE), bindable, requestedit] short Appearance;
+			[id(DISPID_ENABLED), bindable, requestedit] boolean Enabled;
+			[id(DISPID_FONT), bindable] IFontDisp* Font;
+			[id(DISPID_FORECOLOR), bindable, requestedit] OLE_COLOR ForeColor;
+			[id(DISPID_BORDERSTYLE), bindable, requestedit] short BorderStyle;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CAutoSearchCtrl)
+			[id(1)] long BeginSearch(BSTR Param, long DevNo);
+			[id(2)] long PCInfoDelAll();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CAutoSearchCtrl
+
+	[ uuid(D44628B5-9282-11D3-B19B-0000E87780F5),
+	  helpstring("Event interface for AutoSearch Control") ]
+	dispinterface _DAutoSearchEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CAutoSearchCtrl)
+			[id(DISPID_CLICK)] void Click();
+			[id(1)] void PingFail();
+			[id(2)] void PingOver(long DevNo);
+			[id(3)] void GetOver(long DevNo);
+			[id(4)] void GetFail(long DevNo);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CAutoSearchCtrl
+
+	[ uuid(D44628B6-9282-11D3-B19B-0000E87780F5),
+	  helpstring("AutoSearch Control"), control ]
+	coclass AutoSearch
+	{
+		[default] dispinterface _DAutoSearch;
+		[default, source] dispinterface _DAutoSearchEvents;
+	};
+
+	//  Primary dispatch interface for CPollingCtrl
+
+	[ uuid(D44628B8-9282-11D3-B19B-0000E87780F5),
+	  helpstring("Dispatch interface for Polling Control"), hidden ]
+	dispinterface _DPolling
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPollingCtrl)
+			[id(DISPID_CAPTION), bindable, requestedit] BSTR Caption;
+			[id(DISPID_APPEARANCE), bindable, requestedit] short Appearance;
+			[id(DISPID_BORDERSTYLE), bindable, requestedit] short BorderStyle;
+			[id(DISPID_ENABLED), bindable, requestedit] boolean Enabled;
+			[id(DISPID_FONT), bindable] IFontDisp* Font;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPollingCtrl)
+			[id(1)] void BeginPoll();
+			[id(2)] void StopPolling();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CPollingCtrl
+
+	[ uuid(D44628B9-9282-11D3-B19B-0000E87780F5),
+	  helpstring("Event interface for Polling Control") ]
+	dispinterface _DPollingEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPollingCtrl)
+			[id(1)] void AbortPoll(long PollPeriod);
+			[id(2)] void PollFail(short IPNO);
+			[id(DISPID_CLICK)] void Click();
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPollingCtrl
+
+	[ uuid(D44628BA-9282-11D3-B19B-0000E87780F5),
+	  helpstring("Polling Control"), control ]
+	coclass Polling
+	{
+		[default] dispinterface _DPolling;
+		[default, source] dispinterface _DPollingEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
